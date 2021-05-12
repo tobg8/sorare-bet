@@ -1,0 +1,31 @@
+@use 'src/styles/vars' as v;
+
+.catchphrase {
+  position: absolute;
+  top: 20%;
+  font-family: v.$font-text;
+  cursor: default;
+  &__title {
+    font-size: 2em;
+    color: v.$second-color;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    text-transform: uppercase;
+  }
+  &__content {
+    position: absolute;
+    top: 43%;
+    left: 18%;
+    list-style: none;
+    font-size: 1.5em;
+    color: v.$second-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__phrase {
+    margin-bottom: 1.2em;
+    text-align: center;
+  }
+}

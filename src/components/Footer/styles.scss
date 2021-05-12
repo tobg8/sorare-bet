@@ -1,0 +1,31 @@
+@use 'src/styles/vars' as v;
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: v.$bg-color;
+  width: 100%;
+  background-image: url(../../assets/images/footer.svg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  z-index: 1;
+  height: 20vh;
+  display: flex;
+  justify-content: center;
+  &__container {
+    position: absolute;
+    top: 60%;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    font-family: v.$font-title;
+    font-size: 1.1em;
+    color: v.$second-color;
+  }
+  &__copyright {
+    margin-left: 5em;
+  }
+}

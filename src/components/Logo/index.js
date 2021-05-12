@@ -1,0 +1,15 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './styles.scss';
+
+const Logo = () => {
+  const ok = 'truc';
+
+  return (
+    <div className="logo">
+      <Link to="/" className="logo__content">sorare bet</Link>
+    </div>
+  );
+};
+
+export default Logo;

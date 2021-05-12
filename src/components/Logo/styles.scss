@@ -1,0 +1,16 @@
+@use 'src/styles/vars' as v;
+
+.logo {
+  font-family: v.$font-title;
+  width: 25%;
+  padding: 0.8em 0.5em;
+  border: 5px solid v.$second-color;
+  position: fixed;
+  top: -5px;
+  left: -5px;
+  font-size: 2em;
+  color: v.$second-color;
+  background-color: v.$bg-color;
+  border-bottom-right-radius: 25px;
+  text-transform: uppercase;
+}

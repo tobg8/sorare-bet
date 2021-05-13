@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
     "dotenv": "^9.0.2",
     "dotenv-expand": "^5.1.0",
     "dotenv-webpack": "^7.0.2",

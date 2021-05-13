@@ -1,0 +1,6 @@
+@use 'src/styles/vars' as v;
+
+.home {
+  background-color: v.$bg-color;
+  height: 100vh;
+}

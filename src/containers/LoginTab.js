@@ -4,12 +4,20 @@ import {
   openLoginForm,
   closeLoginForm,
   changeLoginField,
+  loginAction,
+  closeDoubleAuth,
+  changeOtpCode,
+  doubleAuthLogin,
 } from 'src/actions/connection';
 
 const mapStateToProps = (state) => ({
   loginStatus: state.connection.loginStatus,
   email: state.connection.user.email,
   password: state.connection.user.password,
+  openDoubleAuth: state.connection.doubleAuth,
+  doubleAuthCode: state.connection.user.otpCode,
+  authError: state.connection.user.authError,
+  error: state.connection.user.error,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -21,6 +29,18 @@ const mapDispatchToProps = (dispatch) => ({
   },
   changeLoginField: (value, name) => {
     dispatch(changeLoginField(value, name));
+  },
+  loginAction: () => {
+    dispatch(loginAction());
+  },
+  closeDoubleAuth: () => {
+    dispatch(closeDoubleAuth());
+  },
+  changeOtpCode: (value) => {
+    dispatch(changeOtpCode(value));
+  },
+  doubleAuthLogin: () => {
+    dispatch(doubleAuthLogin());
   },
 });
 

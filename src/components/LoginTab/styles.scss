@@ -17,6 +17,17 @@
     border-radius: 30px;
     border: none;
   }
+  &__svg {
+    filter: drop-shadow( 1px 10px 10px v.$second-color);
+  }
+  &__explanation {
+    color: v.$second-color;
+    font-family: v.$font-text;
+    margin-bottom: 2em;
+    font-weight: 600;
+    padding-bottom: 1em;
+    border-bottom: 2px solid v.$second-color;
+  }
   &__link {
     font-family: v.$font-text;
     position: absolute;
@@ -47,6 +58,7 @@
     font-size: 1.2em;
     border-radius: 30px;
     margin-top: 2em;
+    color: v.$font-color;
   }
 }
 

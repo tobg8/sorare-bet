@@ -13,6 +13,9 @@
     left: 20%;
     text-transform: uppercase;
   }
+  &__svg {
+    filter: drop-shadow( 10px 2px 10px v.$second-color);
+  }
   &__content {
     position: absolute;
     top: 43%;

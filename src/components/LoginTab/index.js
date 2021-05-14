@@ -99,6 +99,7 @@ const LoginTab = ({
           {authError && (
             <ErrorMessage content="invalid code" />
           )}
+          <p className="logintab__explanation">Enter 2FA code or the code sent to you by email</p>
           <InputLogin
             name="otpCode"
             placeholder="2FA code"

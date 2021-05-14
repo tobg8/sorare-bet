@@ -71,6 +71,8 @@ const connection = (state = initialState, action = {}) => {
         user: {
           ...state.user,
           otpCode: '',
+          error: null,
+          authError: null,
         },
       };
     }

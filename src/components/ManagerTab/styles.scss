@@ -43,7 +43,7 @@ font-family: v.$font-text;
   background-color: v.$second-color;
   width: 20%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   padding-right: 2em;
   cursor: default;
@@ -55,8 +55,13 @@ font-family: v.$font-text;
     }
   }
 }
-&__avatar-container {
+&__picture {
+  height: 3.2em;
   margin-right: 1em;
+}
+&__slug-container {
+  margin-right: 1em;
+  color: v.$font-color;
 }
 &__hidden-menu {
   position: absolute;

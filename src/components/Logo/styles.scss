@@ -15,6 +15,7 @@
   text-transform: uppercase;
   min-width: 350px;
   z-index: 1;
+  filter: drop-shadow( 2px 2px 8px v.$second-color);
   &__content {
     white-space: nowrap;
   }

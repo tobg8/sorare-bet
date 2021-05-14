@@ -5,10 +5,12 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from 'src/reducers';
 // middlewares
 import login from '../middlewares/login';
+import user from '../middlewares/user';
 
 const store = createStore(reducer, composeWithDevTools(
   applyMiddleware(
     login,
+    user,
   ),
 ));
 

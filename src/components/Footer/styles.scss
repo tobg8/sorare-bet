@@ -6,14 +6,22 @@
   left: 0;
   background-color: v.$bg-color;
   width: 100%;
-  background-image: url(../../assets/images/footer.svg);
-  background-position: top;
-  background-repeat: no-repeat;
-  background-size: 100%;
+  // background-image: url(../../assets/images/footer.svg);
+  // background-position: top;
+  // background-repeat: no-repeat;
+  // background-size: 100%;
   z-index: 1;
   height: 20vh;
   display: flex;
   justify-content: center;
+  
+  &__svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    filter: drop-shadow( 2px 1px 8px v.$second-color);
+  }
   &__container {
     position: absolute;
     top: 60%;

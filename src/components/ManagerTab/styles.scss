@@ -6,7 +6,7 @@ min-height: 90px;
 display: flex;
 justify-content: flex-end;
 font-family: v.$font-text;
-margin-bottom: 2em;
+margin-bottom: 1em;
 &__container {
   width: 80%;
   display: flex;
@@ -68,9 +68,9 @@ margin-bottom: 2em;
   position: absolute;
   width: 95%;
   right: 2em;
-  bottom: -7.7em;
-  background-color: v.$bg-color;
-  min-height: 150px;
+  bottom: -5.1em;
+  background-color: white;
+  min-height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -86,12 +86,12 @@ margin-bottom: 2em;
   align-items: center;
   width: 90%;
   margin: 0 auto;
-  padding: 1em;
+  padding: .5em;
   background-color: v.$second-color;
   color: white;
   border-radius: 10px;
   text-transform: capitalize;
   margin-bottom: .3em;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 }

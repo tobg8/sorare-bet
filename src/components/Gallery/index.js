@@ -28,6 +28,7 @@ const Gallery = ({
             key={card.id}
             url={card.pictureUrl}
             last5Score={card.player.status.lastFiveSo5AverageScore}
+            upcomingGames={card.player.activeClub.upcomingGames}
           />
         ))
 

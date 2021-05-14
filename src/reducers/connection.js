@@ -108,6 +108,7 @@ const connection = (state = initialState, action = {}) => {
         ...state,
         user: {
           ...state.user,
+          error: '',
           otpSessionChallenge: '',
           authError: '',
           logged: true,

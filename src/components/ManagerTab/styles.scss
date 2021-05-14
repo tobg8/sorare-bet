@@ -1,0 +1,91 @@
+@use 'src/styles/vars' as v;
+
+.manager-tab {
+background-color: v.$second-color;
+min-height: 9.2%;
+display: flex;
+justify-content: flex-end;
+font-family: v.$font-text;
+&__container {
+  width: 80%;
+  display: flex;
+}
+&__left {
+  background-color: v.$second-color;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+}
+&__gallery {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-direction: column;
+  &::after {
+    content: "";
+    padding-top: .2em;
+    display: block;
+    width: 0%;
+    border-bottom: 3px solid v.$bg-color;
+    align-self: flex-start;
+    margin-left: -.3em;
+    transition: width .3s ease;
+  }
+  &:hover::after {
+    width: 120%;
+  }
+}
+&__right {
+  background-color: v.$second-color;
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 2em;
+  cursor: default;
+  position: relative;
+  font-size: 1.2em;
+  &:hover {
+    .manager-tab__hidden-menu {
+      display: flex;
+    }
+  }
+}
+&__avatar-container {
+  margin-right: 1em;
+}
+&__hidden-menu {
+  position: absolute;
+  width: 95%;
+  right: 2em;
+  bottom: -7.7em;
+  background-color: v.$bg-color;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: .3em;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border: 3px solid v.$second-color;
+  display: none;
+}
+&__menu-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: v.$second-color;
+  color: white;
+  border-radius: 10px;
+  text-transform: capitalize;
+  margin-bottom: .3em;
+  font-size: 1.2em;
+}
+}

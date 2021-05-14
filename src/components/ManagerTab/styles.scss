@@ -2,10 +2,11 @@
 
 .manager-tab {
 background-color: v.$second-color;
-min-height: 9.2%;
+min-height: 90px;
 display: flex;
 justify-content: flex-end;
 font-family: v.$font-text;
+margin-bottom: 2em;
 &__container {
   width: 80%;
   display: flex;

@@ -9,6 +9,8 @@ import CatchPhrase from 'src/components/CatchPhrase';
 import Footer from 'src/components/Footer';
 import LoginTab from 'src/containers/LoginTab';
 import Home from 'src/containers/Home';
+import Gallery from 'src/containers/Gallery';
+import ManagerTab from 'src/containers/ManagerTab';
 
 // == Composant
 const App = () => (
@@ -23,6 +25,13 @@ const App = () => (
       </Route>
       <Route exact path="/home">
         <Home />
+      </Route>
+      <Route exact path="/gallery">
+        <div className="app__gallery">
+          <ManagerTab />
+          <Gallery />
+        </div>
+
       </Route>
     </Switch>
     <Footer />

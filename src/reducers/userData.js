@@ -1,5 +1,6 @@
 import {
   SAVE_USER_INFOS,
+  SAVE_CARDS,
 } from 'src/actions/userData';
 
 const initialState = {
@@ -10,6 +11,7 @@ const initialState = {
       pictureUrl: '',
     },
   },
+  cards: [],
 };
 
 const userData = (state = initialState, action = {}) => {
@@ -19,6 +21,12 @@ const userData = (state = initialState, action = {}) => {
         ...state,
         infoReceived: true,
         infos: action.payload,
+      };
+    }
+    case SAVE_CARDS: {
+      return {
+        ...state,
+        cards: action.payload,
       };
     }
     default:

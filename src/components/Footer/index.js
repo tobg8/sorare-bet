@@ -2,7 +2,9 @@ import React from 'react';
 import './styles.scss';
 
 const Footer = () => {
-  const truc = 'ok';
+  // const chromeNav = !!window.chrome;
+  // console.log(chromeNav);
+  const ok = 'truc';
 
   return (
     <div className="footer">

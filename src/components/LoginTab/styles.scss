@@ -62,6 +62,44 @@
   }
 }
 
+
+// Queries LoginTab
+
+@media screen and (max-width: 950px) {
+  .logintab {
+    transform: scale(.8);
+    top: -30px;
+    right: -80px;
+    &__button {
+      font-size: 1.2em;
+      right: 19%;
+      padding: 1em 4em;
+    }
+    &__link {
+      top: 49%;
+      font-size: 1.3em;
+      right: 13%;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .logintab {
+    transform: scale(.66);
+    right: -110px;
+    top: 10px;
+    &__login-form {
+      margin-top: 6em;
+    }
+    &__login-button {
+      padding: 0;
+      margin-top: 1em;
+      padding: .5em 1em;
+    }
+  }
+}
+
+
 .input {
   font-family: v.$font-text;
   margin: .3em;
@@ -107,6 +145,16 @@
   }
 }
 
+// Media queries Input
+
+@media screen and (max-width: 700px) {
+  .input {
+    width: 80%;
+  }
+}
+
+// Animation
+
 @keyframes labelSlideUpAndShow{
   0% {
     transform: translateY(1em);
@@ -117,3 +165,4 @@
     opacity: 1;
   }
 }
+

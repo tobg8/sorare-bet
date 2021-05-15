@@ -8,6 +8,8 @@ import {
   LOGIN_FAILED,
   DOUBLE_AUTH_FAILED,
   LOGIN_SUCCESS,
+  SAVE_JWT_COOKIE,
+  LOGOUT,
 } from 'src/actions/connection';
 
 const initialState = {
@@ -116,6 +118,26 @@ const connection = (state = initialState, action = {}) => {
           logged: true,
           jwt: action.payload.jwtToken.token,
           name: action.payload.slug,
+        },
+      };
+    }
+    case SAVE_JWT_COOKIE: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          logged: true,
+          jwt: action.jwt,
+        },
+      };
+    }
+    case LOGOUT: {
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          logged: false,
+          jwt: '',
         },
       };
     }

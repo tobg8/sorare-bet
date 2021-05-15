@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import './styles.scss';
 
 import ManagerTab from 'src/containers/ManagerTab';
 
-const Home = ({ logged }) => {
+const Home = ({
+  logged,
+  logout,
+}) => {
+  const history = useHistory();
+  useEffect(() => {
+    const string = localStorage.getItem('jwt');
+    if (!string) {
+      logout();
+      history.push('/');
+    }
+  });
   if (!logged) {
     return <Redirect to="/" />;
   }
@@ -19,6 +30,7 @@ const Home = ({ logged }) => {
 
 Home.propTypes = {
   logged: PropTypes.bool,
+  logout: PropTypes.func.isRequired,
 };
 
 Home.defaultProps = {

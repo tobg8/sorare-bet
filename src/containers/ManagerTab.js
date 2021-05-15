@@ -9,6 +9,10 @@ import {
   handleHiddenMenu,
 } from 'src/actions/interface';
 
+import {
+  saveJwtCookie,
+} from 'src/actions/connection';
+
 const mapStateToProps = (state) => ({
   infoReceived: state.userData.infoReceived,
   slug: state.userData.infos.slug,
@@ -22,6 +26,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleHiddenMenu: () => {
     dispatch(handleHiddenMenu());
+  },
+  saveJwtCookie: (jwt) => {
+    dispatch(saveJwtCookie(jwt));
   },
 });
 

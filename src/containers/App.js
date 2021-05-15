@@ -1,11 +1,17 @@
 import { connect } from 'react-redux';
 import App from 'src/components/App';
 
-const mapStateToProps = (state) => ({
-  error: state.connection.user.error,
+import {
+  saveJwtCookie,
+} from 'src/actions/connection';
+
+const mapStateToProps = () => ({
 });
 
-const mapDispatchToProps = () => ({
+const mapDispatchToProps = (dispatch) => ({
+  saveJwtCookie: (jwt) => {
+    dispatch(saveJwtCookie(jwt));
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

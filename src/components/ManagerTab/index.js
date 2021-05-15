@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import PropTypes from 'prop-types';
 import './styles.scss';
+import checkCookie from 'src/selectors/checkCookie';
 
 import Loader from 'react-loader-spinner';
 
@@ -13,8 +14,20 @@ const ManagerTab = ({
   picture,
   handleHiddenMenu,
   hiddenMenuOpen,
+  saveJwtCookie,
 }) => {
+  const string = localStorage.getItem('jwt');
   useEffect(() => {
+    if (string) {
+      checkCookie(string);
+      if (checkCookie(string)) {
+        // If we get cookie with timestamp < 20 mins
+        // parse cookie
+        const correctCookie = JSON.parse(string);
+        // we save JWT for request
+        saveJwtCookie(correctCookie.value);
+      }
+    }
     fetchUserInfos();
   }, []);
 
@@ -64,6 +77,7 @@ ManagerTab.propTypes = {
   picture: PropTypes.string,
   handleHiddenMenu: PropTypes.func.isRequired,
   hiddenMenuOpen: PropTypes.bool.isRequired,
+  saveJwtCookie: PropTypes.func.isRequired,
 };
 
 ManagerTab.defaultProps = {

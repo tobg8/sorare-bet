@@ -9,6 +9,8 @@ export const LOGIN_FAILED = 'LOGIN_FAILED';
 export const DOUBLE_AUTH_LOGIN = 'DOUBLE_AUTH_LOGIN';
 export const DOUBLE_AUTH_FAILED = 'DOUBLE_AUTH_FAILED';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const SAVE_JWT_COOKIE = 'SAVE_JWT_COOKIE';
+export const LOGOUT = 'LOGOUT';
 
 export const openLoginForm = () => ({
   type: OPEN_LOGIN_FORM,
@@ -59,4 +61,13 @@ export const doubleAuthFailed = (error) => ({
 export const loginSuccess = (payload) => ({
   type: LOGIN_SUCCESS,
   payload,
+});
+
+export const saveJwtCookie = (jwt) => ({
+  type: SAVE_JWT_COOKIE,
+  jwt,
+});
+
+export const logout = () => ({
+  type: LOGOUT,
 });

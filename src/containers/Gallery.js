@@ -5,6 +5,11 @@ import {
   fetchCards,
 } from 'src/actions/userData';
 
+import {
+  saveJwtCookie,
+  logout,
+} from 'src/actions/connection';
+
 const mapStateToProps = (state) => ({
   logged: state.connection.user.logged,
   cards: state.userData.cards,
@@ -13,6 +18,12 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchCards: () => {
     dispatch(fetchCards());
+  },
+  saveJwtCookie: (jwt) => {
+    dispatch(saveJwtCookie(jwt));
+  },
+  logout: () => {
+    dispatch(logout());
   },
 });
 

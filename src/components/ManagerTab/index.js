@@ -11,6 +11,8 @@ const ManagerTab = ({
   infoReceived,
   slug,
   picture,
+  handleHiddenMenu,
+  hiddenMenuOpen,
 }) => {
   useEffect(() => {
     fetchUserInfos();
@@ -24,14 +26,17 @@ const ManagerTab = ({
         </div>
         {infoReceived
           ? (
-            <div className="manager-tab__right">
+            <div
+              className="manager-tab__right"
+              onClick={handleHiddenMenu}
+            >
               <img
                 src={picture}
                 alt="manager avatar"
                 className="manager-tab__picture"
               />
               <p className="manager-tab__slug-container">{slug}</p>
-              <ul className="manager-tab__hidden-menu">
+              <ul className="manager-tab__hidden-menu" style={{ display: hiddenMenuOpen ? 'flex' : 'none' }}>
                 <li className="manager-tab__menu-link">logout</li>
               </ul>
             </div>
@@ -57,6 +62,8 @@ ManagerTab.propTypes = {
   infoReceived: PropTypes.bool.isRequired,
   slug: PropTypes.string,
   picture: PropTypes.string,
+  handleHiddenMenu: PropTypes.func.isRequired,
+  hiddenMenuOpen: PropTypes.bool.isRequired,
 };
 
 ManagerTab.defaultProps = {

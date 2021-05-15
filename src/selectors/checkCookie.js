@@ -7,7 +7,7 @@ export default (cookie) => {
   const now = Date.now();
   const dateDiff = now - date;
   const minutesPassed = dateDiff / 60000;
-  if (minutesPassed > 1) {
+  if (minutesPassed > 20) {
     localStorage.removeItem('jwt');
     // can we dispatch action here ? to set logged to false and remove jwt from state.
   }

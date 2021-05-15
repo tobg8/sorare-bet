@@ -4,6 +4,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 import './styles.scss';
 
 import ManagerTab from 'src/containers/ManagerTab';
+import Leagues from 'src/components/Leagues';
 
 const Home = ({
   logged,
@@ -24,6 +25,7 @@ const Home = ({
   return (
     <div className="home">
       <ManagerTab />
+      <Leagues />
     </div>
   );
 };

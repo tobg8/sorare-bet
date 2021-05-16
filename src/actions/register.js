@@ -11,8 +11,6 @@ export const managerHasRegistered = (data) => ({
   data,
 });
 
-export const managerIsRegistered = (gameWeek, managerId) => ({
-  type: MANAGER_HAS_REGISTERED,
-  gameWeek,
-  managerId,
+export const managerIsRegistered = () => ({
+  type: MANAGER_IS_REGISTERED,
 });

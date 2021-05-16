@@ -5,6 +5,10 @@ import {
   fetchCurrentLeagues,
 } from 'src/actions/interface';
 
+import {
+  managerIsRegistered,
+} from 'src/actions/register';
+
 const mapStateToProps = (state) => ({
   logged: state.connection.user.logged,
   leagues: state.app.leagues,
@@ -14,6 +18,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   fetchCurrentLeagues: () => {
     dispatch(fetchCurrentLeagues());
+  },
+  managerIsRegistered: () => {
+    dispatch(managerIsRegistered());
   },
 });
 

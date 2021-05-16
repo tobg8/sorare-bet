@@ -15,6 +15,7 @@ const ManagerTab = ({
   handleHiddenMenu,
   hiddenMenuOpen,
   saveJwtCookie,
+  managerIsRegistered,
 }) => {
   const string = localStorage.getItem('jwt');
   useEffect(() => {
@@ -29,6 +30,9 @@ const ManagerTab = ({
       }
     }
     fetchUserInfos();
+    setTimeout(() => {
+      managerIsRegistered();
+    }, 4000);
   }, []);
 
   return (
@@ -64,7 +68,6 @@ const ManagerTab = ({
               />
             </div>
           )}
-
       </section>
     </div>
   );
@@ -78,6 +81,7 @@ ManagerTab.propTypes = {
   handleHiddenMenu: PropTypes.func.isRequired,
   hiddenMenuOpen: PropTypes.bool.isRequired,
   saveJwtCookie: PropTypes.func.isRequired,
+  managerIsRegistered: PropTypes.func.isRequired,
 };
 
 ManagerTab.defaultProps = {

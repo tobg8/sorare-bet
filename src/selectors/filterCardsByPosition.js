@@ -6,7 +6,7 @@ export default (object, cards) => {
     const EXTRA = 'Extra';
     const { position } = object;
     if (position === EXTRA) {
-      return cards;
+      return cards.filter((card) => card.position !== 'Goalkeeper');
     }
     const filteredCards = cards.filter((card) => card.position === position);
     return filteredCards;

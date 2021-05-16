@@ -12,11 +12,21 @@ const Card = ({
   className,
   modifier,
   cardModifier,
+  addCard,
+  rarity,
+  name,
 }) => {
   const ok = 'truc';
 
   return (
-    <div className={`card ${className}`}>
+    <div
+      className={`card ${className}`}
+      onClick={() => {
+        if (addCard) {
+          addCard(url, rarity, name);
+        }
+      }}
+    >
       <img
         src={url}
         alt="card player"
@@ -71,6 +81,9 @@ Card.propTypes = {
   className: PropTypes.string,
   modifier: PropTypes.string,
   cardModifier: PropTypes.string,
+  addCard: PropTypes.func,
+  rarity: PropTypes.string,
+  name: PropTypes.string,
 };
 
 Card.defaultProps = {
@@ -78,6 +91,9 @@ Card.defaultProps = {
   className: '',
   modifier: '',
   cardModifier: '',
+  addCard: null,
+  rarity: '',
+  name: '',
 };
 
 export default Card;

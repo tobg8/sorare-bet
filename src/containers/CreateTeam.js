@@ -7,6 +7,7 @@ import {
 
 import {
   chooseRole,
+  addCard,
 } from 'src/actions/interface';
 
 const mapStateToProps = (state) => ({
@@ -26,6 +27,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   chooseRole: (position) => {
     dispatch(chooseRole(position));
+  },
+  addCard: (url, rarity, name) => {
+    dispatch(addCard(url, rarity, name));
   },
 });
 

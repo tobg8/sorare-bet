@@ -5,7 +5,6 @@
   height: 82.3vh;
   display: flex;
   background-color: v.$bg-color;
-  
   &__deck {
     width: 25%;
     overflow: auto;
@@ -20,18 +19,22 @@
     align-items: center;
     border: 3px solid v.$second-color;
   }
-  &__slot {
-    background-color: rgba(255,255,255,.1);
-    width: 15%;
-    height: 40%;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
   &__card {
     width: 100%;
+  }
+}
+
+.slot {
+  background-color: rgba(255,255,255,.1);
+  width: 15%;
+  height: 40%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &--active {
+    border: 3px solid v.$second-color;
   }
   &__role {
     margin-bottom: 1em;
@@ -54,9 +57,9 @@
     &__deck {
       width: 40%;
     }
-    &__slot {
-      width: 30%;
-    }
+  }
+  .slot {
+    width: 30%;
   }
 }
 
@@ -69,11 +72,6 @@
     &__deck {
       height: 75vh;
     }
-    &__slot {
-      width: 80%;
-      margin: 1em 0;
-      height: 35%;
-    }
     &__card {
       width: 100%;
       &--modifier {
@@ -83,5 +81,10 @@
         width: 100%;
       }
     }
+  }
+  .slot {
+    width: 80%;
+    margin: 1em 0;
+    height: 35%;
   }
 }

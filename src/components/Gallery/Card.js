@@ -11,7 +11,7 @@ const Card = ({
   upcomingGames,
   className,
   modifier,
-  cardModifier
+  cardModifier,
 }) => {
   const ok = 'truc';
 

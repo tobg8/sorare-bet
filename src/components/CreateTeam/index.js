@@ -1,22 +1,38 @@
 import React, { useEffect } from 'react';
 import './styles.scss';
+import filterCardsByPosition from 'src/selectors/filterCardsByPosition';
 import Card from 'src/components/Gallery/Card';
 import PropTypes from 'prop-types';
-
-import plus from 'src/assets/images/plus.svg';
+import Slot from './Slot';
 
 const CreateTeam = ({
   fetchCards,
   cards,
+  chooseRole,
+  slots,
+  activePosition,
 }) => {
   useEffect(() => {
     fetchCards();
   }, []);
+  if (activePosition) {
+    filterCardsByPosition(activePosition[0], cards);
+  }
 
   return (
     <div className="interface">
       <div className="interface__deck">
-        {cards.map((card) => (
+        {activePosition ? filterCardsByPosition(activePosition[0], cards).map((card) => (
+          <Card
+            key={card.id}
+            url={card.pictureUrl}
+            last5Score={card.player.status.lastFiveSo5AverageScore}
+            upcomingGames={card.player.activeClub.upcomingGames}
+            className="interface__card"
+            modifier="interface__card--modifier"
+            cardModifier="interface__card-picture--modifier"
+          />
+        )) : cards.map((card) => (
           <Card
             key={card.id}
             url={card.pictureUrl}
@@ -29,26 +45,14 @@ const CreateTeam = ({
         ))}
       </div>
       <div className="interface__build">
-        <div className="interface__slot">
-          <p className="interface__role">Goalkeeper</p>
-          <img className="interface__plus-icon" alt="plus icon" src={plus} />
-        </div>
-        <div className="interface__slot">
-          <p className="interface__role">Defender</p>
-          <img className="interface__plus-icon" alt="plus icon" src={plus} />
-        </div>
-        <div className="interface__slot">
-          <p className="interface__role">Midlefielder</p>
-          <img className="interface__plus-icon" alt="plus icon" src={plus} />
-        </div>
-        <div className="interface__slot">
-          <p className="interface__role">Forward</p>
-          <img className="interface__plus-icon" alt="plus icon" src={plus} />
-        </div>
-        <div className="interface__slot">
-          <p className="interface__role">Extra</p>
-          <img className="interface__plus-icon" alt="plus icon" src={plus} />
-        </div>
+        {slots.map((slot) => (
+          <Slot
+            key={slot.position}
+            position={slot.position}
+            chooseRole={chooseRole}
+            active={slot.active}
+          />
+        ))}
       </div>
     </div>
   );
@@ -57,10 +61,14 @@ const CreateTeam = ({
 CreateTeam.propTypes = {
   cards: PropTypes.array,
   fetchCards: PropTypes.func.isRequired,
+  chooseRole: PropTypes.func.isRequired,
+  slots: PropTypes.array.isRequired,
+  activePosition: PropTypes.array,
 };
 
 CreateTeam.defaultProps = {
   cards: [],
+  activePosition: null,
 };
 
 export default CreateTeam;

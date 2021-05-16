@@ -109,7 +109,7 @@
   &__game-week {
     position: absolute;
     top: 0;
-    left: 44%;
+    left: 45%;
     background-color: v.$second-color;
     padding: .4em;
     border-bottom-left-radius: 10px;
@@ -126,5 +126,12 @@
   .card {
     width: 100%;
   }
-  
+}
+
+@media screen and (max-width: 700px) {
+  .infos {
+    &__game-week {
+      left: 40%;
+    }
+  }
 }

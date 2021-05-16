@@ -9,7 +9,7 @@ const games = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_CURRENT_LEAGUES: {
       const fetchLeagues = async () => {
-        const url = `${process.env.REACT_APP_SERVER_URL}/leagues`;
+        const url = `${process.env.REACT_APP_PRODUCTION_URL}/leagues`;
         try {
           const response = await axios.post(url);
           if (response.status === 200) {

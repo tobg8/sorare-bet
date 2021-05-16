@@ -52,15 +52,18 @@
   &__register-container {
     display: flex;
     justify-content: center;
+    height: 30%;
   }
   &__register-button {
     border: none;
-    padding: 1em;
     border-radius: 10px;
+    color: v.$font-color;
+    letter-spacing: 2px;
     font-family: v.$font-text;
     font-weight: 600;
     font-size: 1em;
     background-color: v.$second-color;
+    padding: 0 2.5em;
   }
 }
 
@@ -75,6 +78,7 @@
   }
   .league {
     height: 30%;
+    width: 80%;
   }
 }
 

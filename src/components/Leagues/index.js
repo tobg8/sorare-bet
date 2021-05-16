@@ -7,6 +7,7 @@ import League from './League';
 const Leagues = ({
   fetchCurrentLeagues,
   leagues,
+  registered,
 }) => {
   useEffect(() => {
     fetchCurrentLeagues();
@@ -21,6 +22,7 @@ const Leagues = ({
           status={league.aasmState}
           slug={league.slug}
           canCompose={league.canCompose}
+          registered={registered}
         />
       ))}
     </div>
@@ -30,6 +32,11 @@ const Leagues = ({
 Leagues.propTypes = {
   fetchCurrentLeagues: PropTypes.func.isRequired,
   leagues: PropTypes.array.isRequired,
+  registered: PropTypes.bool,
+};
+
+Leagues.defaultProps = {
+  registered: null,
 };
 
 export default Leagues;

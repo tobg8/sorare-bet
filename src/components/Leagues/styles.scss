@@ -65,6 +65,16 @@
     background-color: v.$second-color;
     padding: 0 2.5em;
   }
+  &__is-register {
+    font-size: 1em;
+    text-align: center;
+    width: 50%;
+    border-radius: 10px;
+    opacity: .4;
+    margin: 0 auto;
+    padding: 1em;
+    background-color: v.$second-color;
+  }
 }
 
 

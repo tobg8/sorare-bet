@@ -8,6 +8,7 @@ import {
 const mapStateToProps = (state) => ({
   logged: state.connection.user.logged,
   leagues: state.app.leagues,
+  registered: state.app.registered,
 });
 
 const mapDispatchToProps = (dispatch) => ({

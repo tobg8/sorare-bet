@@ -10,6 +10,7 @@ const League = ({
   status,
   slug,
   canCompose,
+  registered,
 }) => {
   const color = colorizeLeagueStatus(status);
   const OPENED = 'opened';
@@ -31,7 +32,7 @@ const League = ({
           style={{ backgroundColor: color }}
         />
       </div>
-      {status === OPENED && canCompose && (
+      {status === OPENED && canCompose && !registered && (
         <Link to="/register" className="league__register-container">
           <button
             className="league__register-button"
@@ -40,6 +41,11 @@ const League = ({
             Register
           </button>
         </Link>
+      )}
+      {registered && status === OPENED && (
+        <div className="league__is-register">
+          Registered
+        </div>
       )}
     </div>
   );
@@ -50,6 +56,11 @@ League.propTypes = {
   status: PropTypes.string.isRequired,
   slug: PropTypes.string.isRequired,
   canCompose: PropTypes.bool.isRequired,
+  registered: PropTypes.bool,
+};
+
+League.defaultProps = {
+  registered: null,
 };
 
 export default League;

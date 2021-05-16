@@ -6,9 +6,18 @@ import {
 } from 'src/actions/userData';
 
 import {
+  saveJwtCookie,
+  logout,
+} from 'src/actions/connection';
+
+import {
   chooseRole,
   addCard,
 } from 'src/actions/interface';
+
+import {
+  registerToLeague,
+} from 'src/actions/register';
 
 const mapStateToProps = (state) => ({
   cards: state.userData.cards,
@@ -19,6 +28,8 @@ const mapStateToProps = (state) => ({
     }
     return null;
   }),
+  registered: state.app.registered,
+  logged: state.connection.user.logged,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -30,6 +41,15 @@ const mapDispatchToProps = (dispatch) => ({
   },
   addCard: (url, rarity, name) => {
     dispatch(addCard(url, rarity, name));
+  },
+  registerToLeague: () => {
+    dispatch(registerToLeague());
+  },
+  saveJwtCookie: (jwt) => {
+    dispatch(saveJwtCookie(jwt));
+  },
+  logout: () => {
+    dispatch(logout());
   },
 });
 

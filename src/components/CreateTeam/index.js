@@ -3,9 +3,11 @@ import './styles.scss';
 import filterCardsByPosition from 'src/selectors/filterCardsByPosition';
 import checkTeamDoublon from 'src/selectors/checkTeamDoublon';
 import checkRarityDoublon from 'src/selectors/checkRarityDoublon';
+import checkCookie from 'src/selectors/checkCookie';
 import teamIsFull from 'src/selectors/teamIsFull';
 import Card from 'src/components/Gallery/Card';
 import PropTypes from 'prop-types';
+import { Redirect, useHistory } from 'react-router-dom';
 import Slot from './Slot';
 
 const CreateTeam = ({
@@ -15,10 +17,40 @@ const CreateTeam = ({
   slots,
   activePosition,
   addCard,
+  registerToLeague,
+  registered,
+  logout,
+  logged,
+  saveJwtCookie,
 }) => {
+  const history = useHistory();
   useEffect(() => {
+    const string = localStorage.getItem('jwt');
+    if (!string) {
+      logout();
+      history.push('/');
+    }
+    if (string) {
+      checkCookie(string);
+      if (checkCookie(string)) {
+        // If we get cookie with timestamp < 20 mins
+        // parse cookie
+        const correctCookie = JSON.parse(string);
+        // we save JWT for request
+        saveJwtCookie(correctCookie.value);
+      }
+    }
     fetchCards();
   }, []);
+  if (registered) {
+    return <Redirect to="/" />;
+  }
+  setTimeout(() => {
+    if (!logged) {
+      return <Redirect to="/" />;
+    }
+    return true;
+  }, 3000);
   teamIsFull(slots);
   return (
     <div className="interface">
@@ -68,7 +100,11 @@ const CreateTeam = ({
         {checkRarityDoublon(slots) === true
          && checkTeamDoublon(slots) === true
           && teamIsFull(slots).length === 0 && (
-          <button type="button" className="interface__submit-team">
+          <button
+            type="button"
+            className="interface__submit-team"
+            onClick={registerToLeague}
+          >
             Submit Team
           </button>
         )}
@@ -84,11 +120,18 @@ CreateTeam.propTypes = {
   slots: PropTypes.array.isRequired,
   activePosition: PropTypes.array,
   addCard: PropTypes.func.isRequired,
+  registerToLeague: PropTypes.func.isRequired,
+  registered: PropTypes.bool,
+  logout: PropTypes.func.isRequired,
+  logged: PropTypes.bool,
+  saveJwtCookie: PropTypes.func.isRequired,
 };
 
 CreateTeam.defaultProps = {
   cards: [],
   activePosition: null,
+  registered: null,
+  logged: null,
 };
 
 export default CreateTeam;

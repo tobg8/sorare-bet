@@ -7,12 +7,14 @@ import reducer from 'src/reducers';
 import login from '../middlewares/login';
 import user from '../middlewares/user';
 import games from '../middlewares/games';
+import registration from '../middlewares/registration';
 
 const store = createStore(reducer, composeWithDevTools(
   applyMiddleware(
     login,
     user,
     games,
+    registration,
   ),
 ));
 

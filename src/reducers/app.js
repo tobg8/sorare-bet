@@ -5,6 +5,10 @@ import {
   ADD_CARD,
 } from 'src/actions/interface';
 
+import {
+  MANAGER_HAS_REGISTERED,
+} from 'src/actions/register';
+
 const initialState = {
   menuStatus: false,
   leagues: [],
@@ -95,6 +99,13 @@ const app = (state = initialState, action = {}) => {
           }
           return player;
         }),
+      };
+    }
+    case MANAGER_HAS_REGISTERED: {
+      return {
+        ...state,
+        message: action.data.message,
+        registered: true,
       };
     }
     default:

@@ -1,9 +1,11 @@
 import {
   HANDLE_HIDDEN_MENU,
+  SAVE_LEAGUES,
 } from 'src/actions/interface';
 
 const initialState = {
   menuStatus: false,
+  leagues: [],
 };
 
 const app = (state = initialState, action = {}) => {
@@ -12,6 +14,12 @@ const app = (state = initialState, action = {}) => {
       return {
         ...state,
         menuStatus: !state.menuStatus,
+      };
+    }
+    case SAVE_LEAGUES: {
+      return {
+        ...state,
+        leagues: action.payload,
       };
     }
     default:

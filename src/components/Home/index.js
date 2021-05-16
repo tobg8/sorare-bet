@@ -4,7 +4,7 @@ import { Redirect, useHistory } from 'react-router-dom';
 import './styles.scss';
 
 import ManagerTab from 'src/containers/ManagerTab';
-import Leagues from 'src/components/Leagues';
+import Leagues from 'src/containers/Leagues';
 
 const Home = ({
   logged,

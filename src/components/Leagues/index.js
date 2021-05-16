@@ -16,6 +16,7 @@ const Leagues = ({
     <div className="leagues">
       {leagues.map((league) => (
         <League
+          key={league.gameWeek}
           gameWeek={league.gameWeek}
           status={league.aasmState}
           slug={league.slug}

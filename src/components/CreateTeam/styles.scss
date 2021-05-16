@@ -1,0 +1,87 @@
+@use 'src/styles/vars' as v;
+
+.interface {
+  margin-top: -1em;
+  height: 82.3vh;
+  display: flex;
+  background-color: v.$bg-color;
+  
+  &__deck {
+    width: 25%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__build {
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 3px solid v.$second-color;
+  }
+  &__slot {
+    background-color: rgba(255,255,255,.1);
+    width: 15%;
+    height: 40%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__card {
+    width: 100%;
+  }
+  &__role {
+    margin-bottom: 1em;
+    font-family: v.$font-text;
+    color: v.$second-color;
+  }
+  &__plus-icon {
+    width: 20%;
+  }
+}
+
+
+@media screen and (max-width: 950px) {
+  .interface {
+    height: 81.2vh;
+    &__build {
+      flex-wrap: wrap;
+      width: 60%;
+    }
+    &__deck {
+      width: 40%;
+    }
+    &__slot {
+      width: 30%;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .interface {
+    &__build {
+      overflow: auto;
+      height: 75vh;
+    }
+    &__deck {
+      height: 75vh;
+    }
+    &__slot {
+      width: 80%;
+      margin: 1em 0;
+      height: 35%;
+    }
+    &__card {
+      width: 100%;
+      &--modifier {
+      display: none;
+      }
+      &-picture--modifier {
+        width: 100%;
+      }
+    }
+  }
+}

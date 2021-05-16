@@ -12,6 +12,7 @@ import LoginTab from 'src/containers/LoginTab';
 import Home from 'src/containers/Home';
 import Gallery from 'src/containers/Gallery';
 import ManagerTab from 'src/containers/ManagerTab';
+import CreateTeam from 'src/containers/CreateTeam';
 
 import checkCookie from 'src/selectors/checkCookie';
 
@@ -51,7 +52,10 @@ const App = ({
             <ManagerTab />
             <Gallery />
           </div>
-
+        </Route>
+        <Route exact path="/register">
+          <ManagerTab />
+          <CreateTeam />
         </Route>
       </Switch>
       <Footer />

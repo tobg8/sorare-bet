@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 
 import colorizeLeagueStatus from 'src/selectors/colorizeLeagueStatus';
@@ -31,14 +32,14 @@ const League = ({
         />
       </div>
       {status === OPENED && canCompose && (
-        <div className="league__register-container">
+        <Link to="/register" className="league__register-container">
           <button
             className="league__register-button"
             type="button"
           >
             Register
           </button>
-        </div>
+        </Link>
       )}
     </div>
   );

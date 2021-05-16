@@ -9,17 +9,20 @@ const Card = ({
   url,
   last5Score,
   upcomingGames,
+  className,
+  modifier,
+  cardModifier
 }) => {
   const ok = 'truc';
 
   return (
-    <div className="card">
+    <div className={`card ${className}`}>
       <img
         src={url}
         alt="card player"
-        className="card__picture"
+        className={`card__picture ${cardModifier}`}
       />
-      <div className="card__infos">
+      <div className={`card__infos ${modifier}`}>
         <div
           className="card__last-five-score"
           style={colorizeScore(last5Score)}
@@ -65,10 +68,16 @@ Card.propTypes = {
       leagueStatus: PropTypes.string,
     }),
   ),
+  className: PropTypes.string,
+  modifier: PropTypes.string,
+  cardModifier: PropTypes.string,
 };
 
 Card.defaultProps = {
   upcomingGames: [],
+  className: '',
+  modifier: '',
+  cardModifier: '',
 };
 
 export default Card;

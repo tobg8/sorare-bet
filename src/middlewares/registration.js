@@ -39,15 +39,18 @@ const registration = (store) => (next) => (action) => {
         const state = store.getState();
         const url = `${process.env.REACT_APP_SERVER_URL}/registered`;
         try {
-          await axios.post(url, {
+          const response = await axios.post(url, {
             managerId: state.userData.infos.id,
           });
+          if (response.status === 200) {
+            return store.dispatch(managerHasRegistered(response.data));
+          }
         }
         catch (error) {
           console.log(error);
-          if (error.response.status === 403) {
-            return store.dispatch(managerHasRegistered(error.response.data));
-          }
+          // if (error.response.status === 403) {
+          //   return store.dispatch(managerHasRegistered(error.response.data));
+          // }
         }
         return true;
       };

@@ -3,6 +3,7 @@ import {
   SAVE_LEAGUES,
   CHOOSE_ROLE,
   ADD_CARD,
+  SAVE_SLOTS,
 } from 'src/actions/interface';
 
 import {
@@ -105,7 +106,22 @@ const app = (state = initialState, action = {}) => {
       return {
         ...state,
         message: action.data.message,
-        registered: true,
+        registered: action.data.registered,
+      };
+    }
+    case SAVE_SLOTS: {
+      return {
+        ...state,
+        leagues: state.leagues.map((league) => {
+          if (league.gameWeek === action.gameWeek) {
+            return {
+              ...league,
+              max_places: action.payload.places_left,
+              locked_places: action.payload.locked_places,
+            };
+          }
+          return league;
+        }),
       };
     }
     default:

@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import Slots from 'src/containers/Slots';
 import './styles.scss';
 
 import colorizeLeagueStatus from 'src/selectors/colorizeLeagueStatus';
@@ -11,6 +12,8 @@ const League = ({
   slug,
   canCompose,
   registered,
+  maxPlaces,
+  lockedPlaces,
 }) => {
   const color = colorizeLeagueStatus(status);
   const OPENED = 'opened';
@@ -18,6 +21,11 @@ const League = ({
   return (
     <div className="league">
       <div className="league__info-container">
+        <Slots
+          gameWeek={gameWeek}
+          maxPlaces={maxPlaces}
+          lockedPlaces={lockedPlaces}
+        />
         <p className="league__info-gw">
           {gameWeek}
         </p>
@@ -57,6 +65,8 @@ League.propTypes = {
   slug: PropTypes.string.isRequired,
   canCompose: PropTypes.bool.isRequired,
   registered: PropTypes.bool,
+  maxPlaces: PropTypes.number.isRequired,
+  lockedPlaces: PropTypes.number.isRequired,
 };
 
 League.defaultProps = {

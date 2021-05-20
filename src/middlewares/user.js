@@ -7,10 +7,6 @@ import {
   saveCards,
 } from 'src/actions/userData';
 
-import {
-  managerIsRegistered,
-} from 'src/actions/register';
-
 const user = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_USER_INFOS: {

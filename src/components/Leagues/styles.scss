@@ -13,6 +13,7 @@
   width: 30%;
   border: 4px solid v.$second-color;
   color: v.$font-color;
+  position: relative;
   &__info-container {
     display: flex;
     flex-direction: column;
@@ -75,6 +76,19 @@
     margin: 0 auto;
     padding: 1em;
     background-color: v.$second-color;
+  }
+}
+
+.slots {
+  background-color: red;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: .7em;
+  background-color: v.$second-color;
+  display: flex;
+  &__divider {
+    margin: 0 .5em;
   }
 }
 

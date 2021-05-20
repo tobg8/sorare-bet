@@ -26,6 +26,8 @@ const Leagues = ({
           slug={league.slug}
           canCompose={league.canCompose}
           registered={registered}
+          maxPlaces={league.max_places}
+          lockedPlaces={league.locked_places}
         />
       ))}
     </div>

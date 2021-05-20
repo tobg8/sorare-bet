@@ -3,6 +3,8 @@ export const FETCH_CURRENT_LEAGUES = 'FETCH_CURRENT_LEAGUES';
 export const SAVE_LEAGUES = 'SAVE_LEAGUES';
 export const CHOOSE_ROLE = 'CHOOSE_ROLE';
 export const ADD_CARD = 'ADD_CARD';
+export const FETCH_SLOTS = 'FETCH_SLOTS';
+export const SAVE_SLOTS = 'SAVE_SLOTS';
 
 export const handleHiddenMenu = () => ({
   type: HANDLE_HIDDEN_MENU,
@@ -27,4 +29,15 @@ export const addCard = (url, rarity, name) => ({
   url,
   rarity,
   name,
+});
+
+export const fetchSlots = (gameWeek) => ({
+  type: FETCH_SLOTS,
+  gameWeek,
+});
+
+export const saveSlots = (payload, gameWeek) => ({
+  type: SAVE_SLOTS,
+  payload,
+  gameWeek,
 });

@@ -11,6 +11,7 @@ export const managerHasRegistered = (data) => ({
   data,
 });
 
-export const managerIsRegistered = () => ({
+export const managerIsRegistered = (data) => ({
   type: MANAGER_IS_REGISTERED,
+  data,
 });

@@ -5,6 +5,8 @@ export const CHOOSE_ROLE = 'CHOOSE_ROLE';
 export const ADD_CARD = 'ADD_CARD';
 export const FETCH_SLOTS = 'FETCH_SLOTS';
 export const SAVE_SLOTS = 'SAVE_SLOTS';
+export const FETCH_MANAGERS = 'FETCH_MANAGERS';
+export const SAVE_MANAGERS_FROM_LEAGUE = 'SAVE_MANAGERS_FROM_LEAGUE';
 
 export const handleHiddenMenu = () => ({
   type: HANDLE_HIDDEN_MENU,
@@ -40,4 +42,14 @@ export const saveSlots = (payload, gameWeek) => ({
   type: SAVE_SLOTS,
   payload,
   gameWeek,
+});
+
+export const fetchManagers = (gameWeek) => ({
+  type: FETCH_MANAGERS,
+  gameWeek,
+});
+
+export const saveManagersFromLeague = (payload) => ({
+  type: SAVE_MANAGERS_FROM_LEAGUE,
+  payload,
 });

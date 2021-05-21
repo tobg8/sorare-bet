@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Slots from 'src/containers/Slots';
-import './styles.scss';
-
 import colorizeLeagueStatus from 'src/selectors/colorizeLeagueStatus';
+import Manager from './Manager';
+import './styles.scss';
 
 const League = ({
   gameWeek,
@@ -14,7 +14,14 @@ const League = ({
   registered,
   maxPlaces,
   lockedPlaces,
+  fetchManagers,
+  managers,
 }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      fetchManagers(gameWeek);
+    }, 1000);
+  }, []);
   const color = colorizeLeagueStatus(status);
   const OPENED = 'opened';
 
@@ -55,6 +62,12 @@ const League = ({
           Registered
         </div>
       )}
+      <div className="manager">
+        {
+        managers && (
+          managers.map((manager) => <Manager manager={manager} key={manager.id} />))
+        }
+      </div>
     </div>
   );
 };
@@ -65,12 +78,17 @@ League.propTypes = {
   slug: PropTypes.string.isRequired,
   canCompose: PropTypes.bool.isRequired,
   registered: PropTypes.bool,
-  maxPlaces: PropTypes.number.isRequired,
-  lockedPlaces: PropTypes.number.isRequired,
+  maxPlaces: PropTypes.number,
+  lockedPlaces: PropTypes.number,
+  fetchManagers: PropTypes.func.isRequired,
+  managers: PropTypes.array,
 };
 
 League.defaultProps = {
   registered: null,
+  managers: null,
+  maxPlaces: 0,
+  lockedPlaces: 0,
 };
 
 export default League;

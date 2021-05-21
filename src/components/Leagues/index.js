@@ -9,6 +9,7 @@ const Leagues = ({
   leagues,
   registered,
   managerIsRegistered,
+  fetchManagers,
 }) => {
   useEffect(() => {
     fetchCurrentLeagues();
@@ -28,6 +29,8 @@ const Leagues = ({
           registered={registered}
           maxPlaces={league.max_places}
           lockedPlaces={league.locked_places}
+          fetchManagers={fetchManagers}
+          managers={league.registeredManagers}
         />
       ))}
     </div>
@@ -39,6 +42,7 @@ Leagues.propTypes = {
   leagues: PropTypes.array.isRequired,
   registered: PropTypes.bool,
   managerIsRegistered: PropTypes.func.isRequired,
+  fetchManagers: PropTypes.func.isRequired,
 };
 
 Leagues.defaultProps = {

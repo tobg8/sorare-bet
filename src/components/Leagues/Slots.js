@@ -24,9 +24,6 @@ const Slots = ({
 Slots.propTypes = {
   gameWeek: PropTypes.number.isRequired,
   fetchSlots: PropTypes.func.isRequired,
-};
-
-Slots.propTypes = {
   maxPlaces: PropTypes.number.isRequired,
   lockedPlaces: PropTypes.number.isRequired,
 };

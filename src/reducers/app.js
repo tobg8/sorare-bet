@@ -4,6 +4,7 @@ import {
   CHOOSE_ROLE,
   ADD_CARD,
   SAVE_SLOTS,
+  SAVE_MANAGERS_FROM_LEAGUE,
 } from 'src/actions/interface';
 
 import {
@@ -118,6 +119,23 @@ const app = (state = initialState, action = {}) => {
               ...league,
               max_places: action.payload.places_left,
               locked_places: action.payload.locked_places,
+            };
+          }
+          return league;
+        }),
+      };
+    }
+    case SAVE_MANAGERS_FROM_LEAGUE: {
+      if (!action.payload[0]) {
+        return state;
+      }
+      return {
+        ...state,
+        leagues: state.leagues.map((league) => {
+          if (league.gameWeek === action.payload[0].game_week) {
+            return {
+              ...league,
+              registeredManagers: [...action.payload],
             };
           }
           return league;

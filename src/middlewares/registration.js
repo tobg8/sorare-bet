@@ -18,6 +18,7 @@ const registration = (store) => (next) => (action) => {
             team: state.app.team,
             userName: state.userData.infos.slug,
             userId: state.userData.infos.id,
+            userPicture: state.userData.infos.profile.pictureUrl,
           });
           if (response.status === 200) {
             return store.dispatch(managerHasRegistered(response.data));
@@ -25,6 +26,7 @@ const registration = (store) => (next) => (action) => {
         }
         catch (error) {
           console.log(error.response);
+          console.log(error);
           if (error.response.status === 403) {
             store.dispatch(managerHasRegistered(error.response.data));
           }
@@ -48,9 +50,6 @@ const registration = (store) => (next) => (action) => {
         }
         catch (error) {
           console.log(error);
-          // if (error.response.status === 403) {
-          //   return store.dispatch(managerHasRegistered(error.response.data));
-          // }
         }
         return true;
       };

@@ -5,6 +5,8 @@ import {
   saveLeagues,
   FETCH_SLOTS,
   saveSlots,
+  FETCH_MANAGERS,
+  saveManagersFromLeague,
 } from 'src/actions/interface';
 
 const games = (store) => (next) => (action) => {
@@ -41,6 +43,24 @@ const games = (store) => (next) => (action) => {
         }
       };
       fetchRemainingPlaces();
+      break;
+    }
+    case FETCH_MANAGERS: {
+      const fetchManagersFromLeague = async () => {
+        const url = `${process.env.REACT_APP_SERVER_URL}/manager-in-league`;
+        try {
+          const response = await axios.post(url, {
+            gameWeek: action.gameWeek,
+          });
+          if (response.status === 200) {
+            store.dispatch(saveManagersFromLeague(response.data));
+          }
+        }
+        catch (error) {
+          console.log(error);
+        }
+      };
+      fetchManagersFromLeague();
       break;
     }
     default:

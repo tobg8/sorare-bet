@@ -3,6 +3,7 @@ import Leagues from 'src/components/Leagues';
 
 import {
   fetchCurrentLeagues,
+  fetchManagers,
 } from 'src/actions/interface';
 
 import {
@@ -21,6 +22,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   managerIsRegistered: () => {
     dispatch(managerIsRegistered());
+  },
+  fetchManagers: (gameWeek) => {
+    dispatch(fetchManagers(gameWeek));
   },
 });
 

@@ -92,6 +92,62 @@
   }
 }
 
+.manager {
+  height: 40vh;
+  position: absolute;
+  width: 100%;
+  bottom: -400px;
+  border: 2px solid v.$second-color;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  overflow-x: hidden;
+  &__container {
+    width: 10%;
+    height: 20%;
+    margin: 0.1em;
+    overflow-y: hidden;
+    &:hover {
+      .manager__tooltip {
+        display: flex;
+      }
+    }
+  }
+  &__avatar-container {
+    width: 100%;
+    height:100%;
+    overflow-y: hidden;
+  }
+  &__avatar {
+    width: 100%;
+    overflow-y: hidden;
+    height: 100%;
+  }
+  &__tooltip {
+    margin-top: -1.3em;
+    position: absolute;
+    display: flex;
+    width: auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    display: none;
+    overflow-y: hidden;
+    white-space: nowrap;
+    z-index: 1;
+    color: v.$second-color;
+    font-weight: 600;
+    background-color: black;
+    padding: .3em;
+    border-radius: 10px;
+  }
+  
+}
+
 
 @media screen and (max-width: 950px) {
   .leagues {
@@ -109,7 +165,7 @@
 
 @media screen and (max-width: 700px) {
   .leagues {
-    height: 70vh;
+    height: auto;
   }
   .league {
     width: 100%;

@@ -5,6 +5,9 @@ import {
   ADD_CARD,
   SAVE_SLOTS,
   SAVE_MANAGERS_FROM_LEAGUE,
+  HANDLE_TEAM_PREVIEW_MODAL,
+  CLOSE_TEAM_PREVIEW_MODAL,
+  SAVE_MANAGER_TEAM_COMP,
 } from 'src/actions/interface';
 
 import {
@@ -14,6 +17,10 @@ import {
 const initialState = {
   menuStatus: false,
   leagues: [],
+  teamPreview: {
+    status: false,
+    teamComp: [],
+  },
   team: [
     {
       position: 'Goalkeeper',
@@ -140,6 +147,33 @@ const app = (state = initialState, action = {}) => {
           }
           return league;
         }),
+      };
+    }
+    case HANDLE_TEAM_PREVIEW_MODAL: {
+      return {
+        ...state,
+        teamPreview: {
+          ...state.teamPreview,
+          status: true,
+        },
+      };
+    }
+    case CLOSE_TEAM_PREVIEW_MODAL: {
+      return {
+        ...state,
+        teamPreview: {
+          ...state.teamPreview,
+          status: false,
+        },
+      };
+    }
+    case SAVE_MANAGER_TEAM_COMP: {
+      return {
+        ...state,
+        teamPreview: {
+          ...state.teamPreview,
+          teamComp: action.payload,
+        },
       };
     }
     default:

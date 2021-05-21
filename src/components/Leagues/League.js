@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Slots from 'src/containers/Slots';
 import colorizeLeagueStatus from 'src/selectors/colorizeLeagueStatus';
-import Manager from './Manager';
+import Manager from 'src/containers/Manager';
 import './styles.scss';
 
 const League = ({

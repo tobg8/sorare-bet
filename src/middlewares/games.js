@@ -7,6 +7,8 @@ import {
   saveSlots,
   FETCH_MANAGERS,
   saveManagersFromLeague,
+  FETCH_TEAM,
+  saveManagerTeamComp,
 } from 'src/actions/interface';
 
 const games = (store) => (next) => (action) => {
@@ -61,6 +63,25 @@ const games = (store) => (next) => (action) => {
         }
       };
       fetchManagersFromLeague();
+      break;
+    }
+    case FETCH_TEAM: {
+      const fetchTeam = async () => {
+        const url = `${process.env.REACT_APP_SERVER_URL}/manager-team`;
+        try {
+          const response = await axios.post(url, {
+            registrationId: action.registrationId,
+            gameWeek: action.gameWeek,
+          });
+          if (response.status === 200) {
+            store.dispatch(saveManagerTeamComp(response.data));
+          }
+        }
+        catch (error) {
+          console.log(error);
+        }
+      };
+      fetchTeam();
       break;
     }
     default:

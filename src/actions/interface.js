@@ -7,6 +7,10 @@ export const FETCH_SLOTS = 'FETCH_SLOTS';
 export const SAVE_SLOTS = 'SAVE_SLOTS';
 export const FETCH_MANAGERS = 'FETCH_MANAGERS';
 export const SAVE_MANAGERS_FROM_LEAGUE = 'SAVE_MANAGERS_FROM_LEAGUE';
+export const HANDLE_TEAM_PREVIEW_MODAL = 'HANDLE_TEAM_PREVIEW_MODAL';
+export const CLOSE_TEAM_PREVIEW_MODAL = 'CLOSE_TEAM_PREVIEW_MODAL';
+export const FETCH_TEAM = 'FETCH_TEAM';
+export const SAVE_MANAGER_TEAM_COMP = 'SAVE_MANAGER_TEAM_COMP';
 
 export const handleHiddenMenu = () => ({
   type: HANDLE_HIDDEN_MENU,
@@ -51,5 +55,24 @@ export const fetchManagers = (gameWeek) => ({
 
 export const saveManagersFromLeague = (payload) => ({
   type: SAVE_MANAGERS_FROM_LEAGUE,
+  payload,
+});
+
+export const handleTeamPreviewModal = () => ({
+  type: HANDLE_TEAM_PREVIEW_MODAL,
+});
+
+export const closeTeamPreviewModal = () => ({
+  type: CLOSE_TEAM_PREVIEW_MODAL,
+});
+
+export const fetchTeam = (registrationId, gameWeek) => ({
+  type: FETCH_TEAM,
+  registrationId,
+  gameWeek,
+});
+
+export const saveManagerTeamComp = (payload) => ({
+  type: SAVE_MANAGER_TEAM_COMP,
   payload,
 });

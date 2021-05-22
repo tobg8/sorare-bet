@@ -11,6 +11,11 @@ import {
   saveManagerTeamComp,
 } from 'src/actions/interface';
 
+import {
+  FETCH_MANAGERS_FROM_LEAGUE,
+  saveManagersInfosFromLeague,
+} from 'src/actions/leaguesInfos';
+
 const games = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_CURRENT_LEAGUES: {
@@ -82,6 +87,25 @@ const games = (store) => (next) => (action) => {
         }
       };
       fetchTeam();
+      break;
+    }
+    case FETCH_MANAGERS_FROM_LEAGUE: {
+      console.log(action);
+      const fetchManagers = async () => {
+        const url = `${process.env.REACT_APP_SERVER_URL}/managers-in-league`;
+        try {
+          const response = await axios.post(url, {
+            gameWeek: action.gameWeek,
+          });
+          if (response.status === 200) {
+            store.dispatch(saveManagersInfosFromLeague(response.data));
+          }
+        }
+        catch (error) {
+          console.log(error);
+        }
+      };
+      fetchManagers();
       break;
     }
     default:

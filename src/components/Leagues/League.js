@@ -2,8 +2,12 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Slots from 'src/containers/Slots';
+
 import colorizeLeagueStatus from 'src/selectors/colorizeLeagueStatus';
+import getManagerRegistrationId from 'src/selectors/getManagerRegistrationId';
+import userIsRegistered from 'src/selectors/userIsRegistered';
 import Manager from 'src/containers/Manager';
+import ShowTeams from 'src/containers/ShowTeams';
 import './styles.scss';
 
 const League = ({
@@ -16,6 +20,9 @@ const League = ({
   lockedPlaces,
   fetchManagers,
   managers,
+  managerId,
+  handleTeamPreviewModal,
+  fetchTeam,
 }) => {
   useEffect(() => {
     setTimeout(() => {
@@ -24,6 +31,12 @@ const League = ({
   }, []);
   const color = colorizeLeagueStatus(status);
   const OPENED = 'opened';
+
+  const fetchMyTeam = () => {
+    const myManager = getManagerRegistrationId(managers, managerId);
+    fetchTeam(myManager[0].id, gameWeek);
+    handleTeamPreviewModal();
+  };
 
   return (
     <div className="league">
@@ -62,6 +75,12 @@ const League = ({
           Registered
         </div>
       )}
+      {userIsRegistered(managers, managerId) && (
+        <div className="league__show-my-team" onClick={fetchMyTeam}>Show my team</div>
+      )}
+      <ShowTeams
+        gameWeek={gameWeek}
+      />
       <div className="manager">
         {
         managers && (
@@ -82,6 +101,9 @@ League.propTypes = {
   lockedPlaces: PropTypes.number,
   fetchManagers: PropTypes.func.isRequired,
   managers: PropTypes.array,
+  managerId: PropTypes.string.isRequired,
+  handleTeamPreviewModal: PropTypes.func.isRequired,
+  fetchTeam: PropTypes.func.isRequired,
 };
 
 League.defaultProps = {

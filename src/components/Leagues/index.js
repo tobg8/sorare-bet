@@ -10,6 +10,9 @@ const Leagues = ({
   registered,
   managerIsRegistered,
   fetchManagers,
+  managerId,
+  handleTeamPreviewModal,
+  fetchTeam,
 }) => {
   useEffect(() => {
     fetchCurrentLeagues();
@@ -31,6 +34,9 @@ const Leagues = ({
           lockedPlaces={league.locked_places}
           fetchManagers={fetchManagers}
           managers={league.registeredManagers}
+          managerId={managerId}
+          handleTeamPreviewModal={handleTeamPreviewModal}
+          fetchTeam={fetchTeam}
         />
       ))}
     </div>
@@ -43,6 +49,9 @@ Leagues.propTypes = {
   registered: PropTypes.bool,
   managerIsRegistered: PropTypes.func.isRequired,
   fetchManagers: PropTypes.func.isRequired,
+  managerId: PropTypes.string.isRequired,
+  handleTeamPreviewModal: PropTypes.func.isRequired,
+  fetchTeam: PropTypes.func.isRequired,
 };
 
 Leagues.defaultProps = {

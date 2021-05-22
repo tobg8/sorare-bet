@@ -77,6 +77,38 @@
     padding: 1em;
     background-color: v.$second-color;
   }
+  &__show-my-team {
+    background-color: v.$second-color;
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    padding: .4em;
+    border-top-left-radius: 10px;
+    cursor: pointer;
+  }
+  &__show-league-teams {
+    background-color: v.$second-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20%;
+    height: 30%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    padding: .4em;
+    border-bottom-right-radius: 10px;
+    cursor: pointer;
+  }
+  &__managers-league {
+    width: 90vw;
+    max-width: 1000%;
+    padding-top: 3em;
+    overflow: auto;
+  }
 }
 
 .slots {
@@ -121,6 +153,8 @@
     width: 100%;
     height:100%;
     overflow-y: hidden;
+    overflow-x: hidden;
+    cursor: pointer;
   }
   &__avatar {
     width: 100%;
@@ -152,15 +186,62 @@
     align-items: center;
     justify-content: center;
     padding: 3em;
+    margin-left: 4em;
   }
   &__card-container {
-    width: 25%;
-    height: 100%;
+    width: 20%;
+
     margin-left: 0.4em;
   }
   &__card {
     width: 100%;
     height: 100%;
+  }
+}
+
+.player {
+  width: 100%;
+  height: 30%;
+  border: 2px solid v.$second-color;
+  display: flex;
+  &__container-infos-manager {
+    height: 100%;
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    border-right: 2px solid v.$second-color;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+  &__infos-name {
+    align-self: center;
+    margin-right: 2em;
+    font-size: 1.2em;
+    color: white;
+    font-family: v.$font-text;
+  }
+  &__container-team-manager {
+    display: flex;
+    width: 60%;
+    justify-content: space-around;
+  }
+  &__container-card {
+    width: 20%;
+    display: flex;
+  }
+  &__team-card {
+    height: 100%;
+  }
+  &__total-score {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    color: white;
+  }
+  &__score {
+    font-size: 1.4em;
   }
 }
 

@@ -11,6 +11,8 @@ export const HANDLE_TEAM_PREVIEW_MODAL = 'HANDLE_TEAM_PREVIEW_MODAL';
 export const CLOSE_TEAM_PREVIEW_MODAL = 'CLOSE_TEAM_PREVIEW_MODAL';
 export const FETCH_TEAM = 'FETCH_TEAM';
 export const SAVE_MANAGER_TEAM_COMP = 'SAVE_MANAGER_TEAM_COMP';
+export const OPEN_MY_TEAM_PREVIEW_MODAL = 'OPEN_MY_TEAM_PREVIEW_MODAL';
+export const CLOSE_MY_TEAM_PREVIEW_MODAL = 'CLOSE_MY_TEAM_PREVIEW_MODAL';
 
 export const handleHiddenMenu = () => ({
   type: HANDLE_HIDDEN_MENU,
@@ -75,4 +77,12 @@ export const fetchTeam = (registrationId, gameWeek) => ({
 export const saveManagerTeamComp = (payload) => ({
   type: SAVE_MANAGER_TEAM_COMP,
   payload,
+});
+
+export const openMyTeamPreviewModal = () => ({
+  type: OPEN_MY_TEAM_PREVIEW_MODAL,
+});
+
+export const closeMyTeamPreviewModal = () => ({
+  type: CLOSE_MY_TEAM_PREVIEW_MODAL,
 });

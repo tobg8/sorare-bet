@@ -13,8 +13,8 @@ const Player = ({ manager }) => {
       </section>
       <section className="player__container-team-manager">
         {manager.cards.map((card) => (
-          <div className="player__container-card">
-            <img className="player__team-card" src={card.picture_url} alt={`card of player ${card.slug}`} key={card.id} />
+          <div className="player__container-card" key={card.id}>
+            <img className="player__team-card" src={card.picture_url} alt={`card of player ${card.slug}`} />
           </div>
         ))}
       </section>

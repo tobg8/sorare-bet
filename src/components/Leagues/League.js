@@ -101,7 +101,7 @@ League.propTypes = {
   lockedPlaces: PropTypes.number,
   fetchManagers: PropTypes.func.isRequired,
   managers: PropTypes.array,
-  managerId: PropTypes.string.isRequired,
+  managerId: PropTypes.string,
   handleTeamPreviewModal: PropTypes.func.isRequired,
   fetchTeam: PropTypes.func.isRequired,
 };
@@ -111,6 +111,7 @@ League.defaultProps = {
   managers: null,
   maxPlaces: 0,
   lockedPlaces: 0,
+  managerId: null,
 };
 
 export default League;

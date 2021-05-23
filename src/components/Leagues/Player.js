@@ -15,6 +15,7 @@ const Player = ({ manager }) => {
         {manager.cards.map((card) => (
           <div className="player__container-card" key={card.id}>
             <img className="player__team-card" src={card.picture_url} alt={`card of player ${card.slug}`} />
+            <p className="player__card-score">{card.score}</p>
           </div>
         ))}
       </section>

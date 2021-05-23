@@ -201,6 +201,7 @@
 
 .player {
   width: 100%;
+  font-family: v.$font-text;
   height: 30%;
   border: 2px solid v.$second-color;
   display: flex;
@@ -231,6 +232,15 @@
   }
   &__team-card {
     height: 100%;
+    width: 70%;
+  }
+  &__card-score {
+    width: 30%;
+    display: flex;
+    font-size: 2em;
+    justify-content: center;
+    align-items: center;
+    color: v.$second-color;
   }
   &__total-score {
     width: 10%;
@@ -242,6 +252,7 @@
   }
   &__score {
     font-size: 1.4em;
+    text-align: center;
   }
 }
 

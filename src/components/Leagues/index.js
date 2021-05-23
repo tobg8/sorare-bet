@@ -49,13 +49,14 @@ Leagues.propTypes = {
   registered: PropTypes.bool,
   managerIsRegistered: PropTypes.func.isRequired,
   fetchManagers: PropTypes.func.isRequired,
-  managerId: PropTypes.string.isRequired,
+  managerId: PropTypes.string,
   handleTeamPreviewModal: PropTypes.func.isRequired,
   fetchTeam: PropTypes.func.isRequired,
 };
 
 Leagues.defaultProps = {
   registered: null,
+  managerId: null,
 };
 
 export default Leagues;

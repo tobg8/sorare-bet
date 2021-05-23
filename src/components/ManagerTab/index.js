@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import PropTypes from 'prop-types';
 import './styles.scss';
@@ -36,6 +36,13 @@ const ManagerTab = ({
     }, 4000);
   }, []);
 
+  const history = useHistory();
+
+  const handleLogout = () => {
+    logout();
+    history.push('/');
+  };
+
   return (
     <div className="manager-tab">
       <section className="manager-tab__container">
@@ -55,7 +62,7 @@ const ManagerTab = ({
               />
               <p className="manager-tab__slug-container">{slug}</p>
               <ul className="manager-tab__hidden-menu" style={{ display: hiddenMenuOpen ? 'flex' : 'none' }}>
-                <li className="manager-tab__menu-link" onClick={logout}>logout</li>
+                <li className="manager-tab__menu-link" onClick={handleLogout}>logout</li>
               </ul>
             </div>
           )

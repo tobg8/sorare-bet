@@ -126,6 +126,7 @@
 
 .manager {
   height: 40vh;
+  z-index: 1;
   position: absolute;
   width: 100%;
   bottom: -400px;
@@ -270,13 +271,21 @@
   .leagues {
     flex-direction: column;
     width: 100%;
-    height: 70vh;
+    height: auto;
     align-items: center;
     overflow: auto;
   }
   .league {
-    height: 30%;
+    height: auto;
     width: 80%;
+    margin-bottom: 30em;
+  }
+  .manager {
+    bottom: -450px;
+    &__team-modal {
+      height: 30%;
+      margin-left: 2.5em;
+    }
   }
 }
 
@@ -287,12 +296,33 @@
   .league {
     width: 100%;
     position: relative;
+    margin-bottom: 25em;
     &__register-button {
       position: absolute;
       top: -1px;
       right: 0;
       padding: .8em;
       border-radius: 0;
+    }
+    &__show-my-team {
+      font-size: .9em;
+    }
+    &__show-league-teams--paragraph {
+      font-size: .9em;
+    }
+  }
+  .manager {
+    bottom: -370px;
+    &__team-modal {
+      height: 90vh;
+      flex-wrap: wrap;
+      overflow: auto;
+      margin-left: 1.3em;
+    }
+    &__card-container {
+      height: 30vh;
+      width: 50%;
+      margin-bottom: 1em;
     }
   }
 }

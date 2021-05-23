@@ -16,8 +16,8 @@ const initialState = {
   loginStatus: false,
   doubleAuth: false,
   user: {
-    email: 'sorarebusiness@yahoo.com',
-    password: 'theomula987!',
+    email: '',
+    password: '',
     otpSessionChallenge: '',
     otpCode: '',
     error: null,

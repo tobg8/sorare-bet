@@ -282,7 +282,7 @@
   .league {
     height: auto;
     width: 80%;
-    margin-bottom: 30em;
+    margin-bottom: 35em;
     &__managers-league {
       display: flex;
       flex-direction: column;
@@ -355,7 +355,8 @@
     }
   }
   .manager {
-    bottom: -370px;
+    bottom: -310px;
+    height: 30vh;
     &__team-modal {
       height: 90vh;
       flex-wrap: wrap;

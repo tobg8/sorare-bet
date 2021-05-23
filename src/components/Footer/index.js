@@ -9,9 +9,9 @@ const Footer = () => {
   return (
     <div className="footer">
       <section className="footer__container">
-        <div>ok</div>
-        <div className="footer__copyright">sorare bet ©</div>
-        <div>azeazez</div>
+        <div className="footer__link">Récompenses</div>
+        <div className="footer__link">Mentions légales</div>
+        <div className="footer__link">A propos</div>
       </section>
     </div>
   );

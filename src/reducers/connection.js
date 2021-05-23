@@ -132,6 +132,7 @@ const connection = (state = initialState, action = {}) => {
       };
     }
     case LOGOUT: {
+      localStorage.removeItem('jwt');
       return {
         ...state,
         user: {

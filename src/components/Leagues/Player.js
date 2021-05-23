@@ -2,12 +2,13 @@ import React from 'react';
 import './styles.scss';
 import PropTypes from 'prop-types';
 
-const Player = ({ manager }) => {
+const Player = ({ manager, place }) => {
   const ok = 'truc';
-
+  console.log(manager, place);
   return (
     <div className="player">
       <section className="player__container-infos-manager">
+        <div className="player__place">{place}</div>
         <p className="player__infos-name">{manager.manager_name}</p>
         <img className="player__infos-picture" src={manager.manager_picture} alt={`manager ${manager.manager_name}`} />
       </section>
@@ -35,6 +36,7 @@ Player.propTypes = {
     total_score: PropTypes.number.isRequired,
     cards: PropTypes.array.isRequired,
   }).isRequired,
+  place: PropTypes.number.isRequired,
 };
 
 export default Player;

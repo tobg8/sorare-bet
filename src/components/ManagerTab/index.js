@@ -16,6 +16,7 @@ const ManagerTab = ({
   hiddenMenuOpen,
   saveJwtCookie,
   managerIsRegistered,
+  logout,
 }) => {
   const string = localStorage.getItem('jwt');
   useEffect(() => {
@@ -54,7 +55,7 @@ const ManagerTab = ({
               />
               <p className="manager-tab__slug-container">{slug}</p>
               <ul className="manager-tab__hidden-menu" style={{ display: hiddenMenuOpen ? 'flex' : 'none' }}>
-                <li className="manager-tab__menu-link">logout</li>
+                <li className="manager-tab__menu-link" onClick={logout}>logout</li>
               </ul>
             </div>
           )
@@ -82,6 +83,7 @@ ManagerTab.propTypes = {
   hiddenMenuOpen: PropTypes.bool.isRequired,
   saveJwtCookie: PropTypes.func.isRequired,
   managerIsRegistered: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
 };
 
 ManagerTab.defaultProps = {

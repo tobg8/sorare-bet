@@ -20,7 +20,7 @@ const games = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_CURRENT_LEAGUES: {
       const fetchLeagues = async () => {
-        const url = `${process.env.REACT_APP_SERVER_URL}/leagues`;
+        const url = `${process.env.REACT_APP_PRODUCTION_URL}/leagues`;
         try {
           const response = await axios.post(url);
           if (response.status === 200) {
@@ -36,7 +36,7 @@ const games = (store) => (next) => (action) => {
     }
     case FETCH_SLOTS: {
       const fetchRemainingPlaces = async () => {
-        const url = `${process.env.REACT_APP_SERVER_URL}/places`;
+        const url = `${process.env.REACT_APP_PRODUCTION_URL}/places`;
         try {
           const response = await axios.post(url, {
             gameWeek: action.gameWeek,
@@ -54,7 +54,7 @@ const games = (store) => (next) => (action) => {
     }
     case FETCH_MANAGERS: {
       const fetchManagersFromLeague = async () => {
-        const url = `${process.env.REACT_APP_SERVER_URL}/manager-in-league`;
+        const url = `${process.env.REACT_APP_PRODUCTION_URL}/manager-in-league`;
         try {
           const response = await axios.post(url, {
             gameWeek: action.gameWeek,
@@ -72,7 +72,7 @@ const games = (store) => (next) => (action) => {
     }
     case FETCH_TEAM: {
       const fetchTeam = async () => {
-        const url = `${process.env.REACT_APP_SERVER_URL}/manager-team`;
+        const url = `${process.env.REACT_APP_PRODUCTION_URL}/manager-team`;
         try {
           const response = await axios.post(url, {
             registrationId: action.registrationId,
@@ -92,7 +92,7 @@ const games = (store) => (next) => (action) => {
     case FETCH_MANAGERS_FROM_LEAGUE: {
       console.log(action);
       const fetchManagers = async () => {
-        const url = `${process.env.REACT_APP_SERVER_URL}/managers-in-league`;
+        const url = `${process.env.REACT_APP_PRODUCTION_URL}/managers-in-league`;
         try {
           const response = await axios.post(url, {
             gameWeek: action.gameWeek,

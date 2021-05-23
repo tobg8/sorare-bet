@@ -18,6 +18,9 @@ const ShowTeams = ({
     openModal();
   };
 
+  const sortManagersByTotalScore = managers.sort((a, b) => ((a.total_score < b.total_score) ? 1 : -1));
+  let place = 0;
+
   return (
     <div className="league__show-league-teams">
       <p onClick={watchLeagues} className="league__show-league-teams--paragraph">Show all teams</p>
@@ -26,7 +29,10 @@ const ShowTeams = ({
         classNames={{ modal: 'league__managers-league' }}
         onClose={closeModal}
       >
-        {managers && (managers.map((manager) => <Player manager={manager} key={manager.id} />))}
+        {managers && (sortManagersByTotalScore.map((manager) => {
+          place += 1;
+          return <Player manager={manager} key={manager.id} place={place} />;
+        }))}
       </Modal>
     </div>
   );

@@ -205,11 +205,21 @@
   height: 30%;
   border: 2px solid v.$second-color;
   display: flex;
+  margin-bottom: 1em;
+  position: relative;
+  &__place {
+    color: white;
+    width: 10%;
+    bottom: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   &__container-infos-manager {
     height: 100%;
     width: 30%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     border-right: 2px solid v.$second-color;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;

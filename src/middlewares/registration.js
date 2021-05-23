@@ -11,7 +11,7 @@ const registration = (store) => (next) => (action) => {
     case REGISTER_TO_LEAGUE: {
       const registerLeague = async () => {
         const state = store.getState();
-        const url = `${process.env.REACT_APP_SERVER_URL}/registration`;
+        const url = `${process.env.REACT_APP_PRODUCTION_URL}/registration`;
         try {
           const response = await axios.post(url, {
             jwt: state.connection.user.jwt,
@@ -39,7 +39,7 @@ const registration = (store) => (next) => (action) => {
     case MANAGER_IS_REGISTERED: {
       const isManagerRegistered = async () => {
         const state = store.getState();
-        const url = `${process.env.REACT_APP_SERVER_URL}/registered`;
+        const url = `${process.env.REACT_APP_PRODUCTION_URL}/registered`;
         try {
           const response = await axios.post(url, {
             managerId: state.userData.infos.id,

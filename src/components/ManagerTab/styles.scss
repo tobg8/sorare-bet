@@ -79,6 +79,7 @@ margin-bottom: 1em;
   border-bottom-left-radius: 30px;
   border: 3px solid v.$second-color;
   display: none;
+  z-index: 1;
 }
 &__menu-link {
   display: flex;
@@ -93,6 +94,7 @@ margin-bottom: 1em;
   text-transform: capitalize;
   margin-bottom: .3em;
   font-size: 1em;
+  cursor: pointer;
 }
 }
 

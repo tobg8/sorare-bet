@@ -264,6 +264,10 @@
   &__score {
     font-size: 1.4em;
     text-align: center;
+    color: v.$second-color;
+    &--modifier {
+      color: white;
+    }
   }
 }
 
@@ -279,6 +283,45 @@
     height: auto;
     width: 80%;
     margin-bottom: 30em;
+    &__managers-league {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  .player {
+    height: 26%;
+    &__container-infos-manager {
+      width: 20%;
+      margin-right: 1em;
+    }
+    &__infos-name {
+      margin: 0;
+    }
+    &__infos-picture {
+      height: 50%;
+    }
+    &__container-team-manager {
+      width: 70%;
+    }
+    &__team-card {
+      width: 100%;
+    }
+    &__container-card {
+      display: flex;
+      flex-direction: column;
+    }
+    &__card-score {
+      align-self: center;
+    }
+    &__total-score {
+      justify-content: space-between;
+    }
+    &__score {
+      font-size: 4em;
+      &--modifier {
+        font-size: 1.5em;
+      }
+    }
   }
   .manager {
     bottom: -450px;
@@ -323,6 +366,24 @@
       height: 30vh;
       width: 50%;
       margin-bottom: 1em;
+    }
+  }
+
+  .player {
+    height: 40%;
+    justify-content: space-between;
+    &__container-infos-manager {
+      flex-direction: column;
+    }
+    &__place {
+      margin-left: 1em;
+      font-size: 2em;
+    }
+    &__container-team-manager {
+      display: none;
+    }
+    &__total-score  {
+      width: 30%;
     }
   }
 }

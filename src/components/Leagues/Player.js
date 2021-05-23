@@ -21,7 +21,7 @@ const Player = ({ manager, place }) => {
         ))}
       </section>
       <div className="player__total-score">
-        <p className="player__score">Total Score</p>
+        <p className="player__score player__score--modifier">Score</p>
         <p className="player__score">{manager.total_score}</p>
       </div>
     </div>

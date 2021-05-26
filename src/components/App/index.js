@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import moment from 'moment';
 // == Import
 import './styles.scss';
 import Page from 'src/containers/Page';
@@ -14,6 +15,7 @@ import Gallery from 'src/containers/Gallery';
 import ManagerTab from 'src/containers/ManagerTab';
 import CreateTeam from 'src/containers/CreateTeam';
 import Soccer from 'src/components/Soccer';
+import Time from 'src/components/Time';
 import checkCookie from 'src/selectors/checkCookie';
 
 // == Composant
@@ -21,6 +23,12 @@ const App = ({
   saveJwtCookie,
 }) => {
   const string = localStorage.getItem('jwt');
+
+  const format = 'hh:mm:ss';
+  const now = moment();
+  const beforeTime = moment('18:55:00', format);
+  const afterTime = moment('19:05:00', format);
+  const maintenanceHours = now.isBetween(beforeTime, afterTime);
 
   useEffect(() => {
     if (string) {
@@ -37,30 +45,37 @@ const App = ({
   return (
     <div className="app">
       <Logo />
-      <Switch>
-        <Route exact path="/">
-          <Page>
-            <CatchPhrase />
-            <LoginTab />
-          </Page>
-        </Route>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/gallery">
-          <div className="app__gallery">
-            <ManagerTab />
-            <Gallery />
-          </div>
-        </Route>
-        <Route exact path="/register">
-          <ManagerTab />
-          <CreateTeam />
-        </Route>
-        <Route exact path="/test">
-          <Soccer />
-        </Route>
-      </Switch>
+      {
+        maintenanceHours ? (
+          <Time />
+        ) : (
+          <Switch>
+            <Route exact path="/">
+              <Page>
+                <CatchPhrase />
+                <LoginTab />
+              </Page>
+            </Route>
+            <Route exact path="/home">
+              <Home />
+            </Route>
+            <Route exact path="/gallery">
+              <div className="app__gallery">
+                <ManagerTab />
+                <Gallery />
+              </div>
+            </Route>
+            <Route exact path="/register">
+              <ManagerTab />
+              <CreateTeam />
+            </Route>
+            <Route exact path="/test">
+              <Soccer />
+              <Time />
+            </Route>
+          </Switch>
+        )
+      }
       <Footer />
     </div>
   );

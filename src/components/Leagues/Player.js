@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 const Player = ({ manager, place }) => {
   const ok = 'truc';
-  console.log(manager, place);
   return (
     <div className="player">
       <section className="player__container-infos-manager">

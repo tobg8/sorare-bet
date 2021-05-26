@@ -250,6 +250,7 @@
   &__team-card {
     height: 100%;
     width: 70%;
+    object-fit: contain;
   }
   &__card-score {
     width: 30%;
@@ -296,6 +297,7 @@
   }
   .player {
     height: 26%;
+    min-height: 190px;
     &__container-infos-manager {
       width: 20%;
       margin-right: 1em;
@@ -305,16 +307,20 @@
     }
     &__infos-picture {
       height: 50%;
+      align-self: center;
+      object-fit: contain;
     }
     &__container-team-manager {
       width: 70%;
     }
     &__team-card {
       width: 100%;
+      
     }
     &__container-card {
       display: flex;
       flex-direction: column;
+      margin-right: 0.4em;
     }
     &__card-score {
       align-self: center;
@@ -327,6 +333,10 @@
       &--modifier {
         font-size: 1.5em;
       }
+    }
+    &__container-infos-manager {
+      flex-direction: column;
+      width: 30%;
     }
   }
   .manager {
@@ -379,9 +389,6 @@
   .player {
     height: 40%;
     justify-content: space-between;
-    &__container-infos-manager {
-      flex-direction: column;
-    }
     &__place {
       margin-left: 1em;
       font-size: 2em;
@@ -391,6 +398,10 @@
     }
     &__total-score  {
       width: 30%;
+      justify-content: space-around;
+    }
+    &__infos-name {
+      font-size: 1em;
     }
   }
 }

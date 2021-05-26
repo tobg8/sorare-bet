@@ -25,7 +25,6 @@ const registration = (store) => (next) => (action) => {
           }
         }
         catch (error) {
-          console.log(error.response);
           console.log(error);
           if (error.response.status === 403) {
             store.dispatch(managerHasRegistered(error.response.data));

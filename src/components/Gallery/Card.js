@@ -16,7 +16,7 @@ const Card = ({
   rarity,
   name,
 }) => {
-  console.log(upcomingGames);
+  const ok = 'truc';
   return (
     <div
       className={`card ${className}`}

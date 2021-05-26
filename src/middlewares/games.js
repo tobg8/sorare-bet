@@ -90,7 +90,6 @@ const games = (store) => (next) => (action) => {
       break;
     }
     case FETCH_MANAGERS_FROM_LEAGUE: {
-      console.log(action);
       const fetchManagers = async () => {
         const url = `${process.env.REACT_APP_PRODUCTION_URL}/managers-in-league`;
         try {

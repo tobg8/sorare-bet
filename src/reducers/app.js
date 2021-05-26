@@ -28,6 +28,7 @@ const initialState = {
       cardName: '1',
       rarity: '',
       url: '',
+      avgScore: '',
     },
     {
       position: 'Defender',
@@ -35,6 +36,7 @@ const initialState = {
       cardName: '2',
       rarity: '',
       url: '',
+      avgScore: '',
     },
     {
       position: 'Midfielder',
@@ -42,6 +44,7 @@ const initialState = {
       cardName: '3',
       rarity: '',
       url: '',
+      avgScore: '',
     },
     {
       position: 'Forward',
@@ -49,6 +52,7 @@ const initialState = {
       cardName: '4',
       rarity: '',
       url: '',
+      avgScore: '',
     },
     {
       position: 'Extra',
@@ -56,6 +60,7 @@ const initialState = {
       cardName: '5',
       rarity: '',
       url: '',
+      avgScore: '',
     },
   ],
 };
@@ -104,6 +109,7 @@ const app = (state = initialState, action = {}) => {
               cardName: action.name,
               rarity: action.rarity,
               url: action.url,
+              avgScore: action.last5Score,
             };
           }
           return player;

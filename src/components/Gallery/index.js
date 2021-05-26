@@ -43,7 +43,7 @@ const Gallery = ({
     }
     return true;
   }, 3000);
-
+  
   return (
     <div className="gallery">
       {cards.length > 0 ? (

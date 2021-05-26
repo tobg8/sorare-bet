@@ -13,7 +13,7 @@ import Home from 'src/containers/Home';
 import Gallery from 'src/containers/Gallery';
 import ManagerTab from 'src/containers/ManagerTab';
 import CreateTeam from 'src/containers/CreateTeam';
-
+import Soccer from 'src/components/Soccer';
 import checkCookie from 'src/selectors/checkCookie';
 
 // == Composant
@@ -56,6 +56,9 @@ const App = ({
         <Route exact path="/register">
           <ManagerTab />
           <CreateTeam />
+        </Route>
+        <Route exact path="/test">
+          <Soccer />
         </Route>
       </Switch>
       <Footer />

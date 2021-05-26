@@ -32,11 +32,12 @@ export const chooseRole = (position) => ({
   position,
 });
 
-export const addCard = (url, rarity, name) => ({
+export const addCard = (url, rarity, name, last5Score) => ({
   type: ADD_CARD,
   url,
   rarity,
   name,
+  last5Score,
 });
 
 export const fetchSlots = (gameWeek) => ({

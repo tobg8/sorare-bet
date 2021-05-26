@@ -5,6 +5,7 @@ import checkTeamDoublon from 'src/selectors/checkTeamDoublon';
 import checkRarityDoublon from 'src/selectors/checkRarityDoublon';
 import checkCookie from 'src/selectors/checkCookie';
 import teamIsFull from 'src/selectors/teamIsFull';
+import checkAvgScore from 'src/selectors/checkAvgScore';
 import Card from 'src/components/Gallery/Card';
 import PropTypes from 'prop-types';
 import { Redirect, useHistory } from 'react-router-dom';
@@ -51,11 +52,13 @@ const CreateTeam = ({
     }
     return true;
   }, 3000);
+  checkAvgScore(slots);
+
   teamIsFull(slots);
   return (
     <div className="interface">
       <div className="interface__deck">
-        {activePosition ? filterCardsByPosition(activePosition[0], cards).map((card) => (
+        {activePosition && cards.length > 0 ? filterCardsByPosition(activePosition[0], cards).map((card) => (
           <Card
             key={card.id}
             url={card.pictureUrl}
@@ -94,11 +97,15 @@ const CreateTeam = ({
         {checkTeamDoublon(slots) === false && (
           <div className="interface__error">Same card used twice</div>
         )}
+        {checkAvgScore(slots) === false && (
+          <div className="interface__error">Card must have 45 or less average score</div>
+        )}
         {checkRarityDoublon(slots) === false && (
           <div className="interface__error">One max common</div>
         )}
         {checkRarityDoublon(slots) === true
          && checkTeamDoublon(slots) === true
+          && checkAvgScore(slots) === true
           && teamIsFull(slots).length === 0 && (
           <button
             type="button"

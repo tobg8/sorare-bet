@@ -161,6 +161,7 @@
     width: 100%;
     overflow-y: hidden;
     height: 100%;
+    object-fit: cover;
   }
   &__tooltip {
     margin-top: -1.3em;
@@ -231,6 +232,10 @@
     font-size: 1.2em;
     color: white;
     font-family: v.$font-text;
+  }
+  &__infos-picture {
+    max-width: 90px;
+    object-fit: cover;
   }
   &__container-team-manager {
     display: flex;

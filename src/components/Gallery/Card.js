@@ -16,14 +16,13 @@ const Card = ({
   rarity,
   name,
 }) => {
-  const ok = 'truc';
-
+  console.log(upcomingGames);
   return (
     <div
       className={`card ${className}`}
       onClick={() => {
         if (addCard) {
-          addCard(url, rarity, name);
+          addCard(url, rarity, name, last5Score);
         }
       }}
     >
@@ -41,7 +40,7 @@ const Card = ({
         </div>
         <div className="card__games-container">
           {
-          upcomingGames.length > 0
+          upcomingGames && upcomingGames.length > 0 && upcomingGames !== null
             ? (
               upcomingGames.map((game) => (
                 <Infos

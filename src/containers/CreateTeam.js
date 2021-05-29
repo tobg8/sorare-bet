@@ -30,6 +30,7 @@ const mapStateToProps = (state) => ({
   }),
   registered: state.app.registered,
   logged: state.connection.user.logged,
+  currentGW: state.app.leagues.filter((league) => league.aasmState === 'opened'),
 });
 
 const mapDispatchToProps = (dispatch) => ({

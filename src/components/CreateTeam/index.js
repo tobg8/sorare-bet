@@ -5,6 +5,7 @@ import checkTeamDoublon from 'src/selectors/checkTeamDoublon';
 import checkRarityDoublon from 'src/selectors/checkRarityDoublon';
 import checkCookie from 'src/selectors/checkCookie';
 import teamIsFull from 'src/selectors/teamIsFull';
+import checkNextMatchPlayer from 'src/selectors/checkNextMatchPlayer';
 import checkAvgScore from 'src/selectors/checkAvgScore';
 import Card from 'src/components/Gallery/Card';
 import PropTypes from 'prop-types';
@@ -23,6 +24,7 @@ const CreateTeam = ({
   logout,
   logged,
   saveJwtCookie,
+  currentGW,
 }) => {
   const history = useHistory();
   useEffect(() => {
@@ -43,6 +45,9 @@ const CreateTeam = ({
     }
     fetchCards();
   }, []);
+  if (currentGW.length === 0) {
+    history.push('/');
+  }
   if (registered) {
     return <Redirect to="/" />;
   }
@@ -52,13 +57,19 @@ const CreateTeam = ({
     }
     return true;
   }, 3000);
-  checkAvgScore(slots);
+
+  // checkAvgScore(slots);
+  // if (currentGW.length > 0) {
+  //   console.log(checkNextMatchPlayer(currentGW, cards));
+  // }
 
   teamIsFull(slots);
+  // We need to filter cards that has no upcomingGames in this GW.
+
   return (
     <div className="interface">
       <div className="interface__deck">
-        {activePosition && cards.length > 0 ? filterCardsByPosition(activePosition[0], cards).map((card) => (
+        {activePosition && checkNextMatchPlayer(currentGW, cards).length > 0 ? filterCardsByPosition(activePosition[0], checkNextMatchPlayer(currentGW, cards)).map((card) => (
           <Card
             key={card.id}
             url={card.pictureUrl}
@@ -71,7 +82,7 @@ const CreateTeam = ({
             rarity={card.rarity}
             name={card.slug}
           />
-        )) : cards.map((card) => (
+        )) : checkNextMatchPlayer(currentGW, cards).map((card) => (
           <Card
             key={card.id}
             url={card.pictureUrl}
@@ -103,6 +114,9 @@ const CreateTeam = ({
         {checkRarityDoublon(slots) === false && (
           <div className="interface__error">One max common</div>
         )}
+        {checkNextMatchPlayer(currentGW, cards).length < 5 && (
+          <div className="interface__error">You don't have enough players that plays this week</div>
+        )}
         {checkRarityDoublon(slots) === true
          && checkTeamDoublon(slots) === true
           && checkAvgScore(slots) === true
@@ -132,6 +146,9 @@ CreateTeam.propTypes = {
   logout: PropTypes.func.isRequired,
   logged: PropTypes.bool,
   saveJwtCookie: PropTypes.func.isRequired,
+  currentGW: PropTypes.arrayOf(PropTypes.shape({
+    gameWeek: PropTypes.number.isRequired,
+  })),
 };
 
 CreateTeam.defaultProps = {
@@ -139,6 +156,7 @@ CreateTeam.defaultProps = {
   activePosition: null,
   registered: null,
   logged: null,
+  currentGW: null,
 };
 
 export default CreateTeam;

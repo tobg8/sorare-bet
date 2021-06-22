@@ -11,7 +11,8 @@ const registration = (store) => (next) => (action) => {
     case REGISTER_TO_LEAGUE: {
       const registerLeague = async () => {
         const state = store.getState();
-        const url = `${process.env.REACT_APP_PRODUCTION_URL}/registration`;
+        const url = `${process.env.REACT_APP_SERVER_URL}/registration`;
+        console.log('herererr');
         try {
           const response = await axios.post(url, {
             jwt: state.connection.user.jwt,
@@ -25,8 +26,11 @@ const registration = (store) => (next) => (action) => {
           }
         }
         catch (error) {
-          console.log(error);
           if (error.response.status === 403) {
+            store.dispatch(managerHasRegistered(error.response.data));
+          }
+          if (error.response.status === 400) {
+            console.log(error);
             store.dispatch(managerHasRegistered(error.response.data));
           }
         }
@@ -38,7 +42,7 @@ const registration = (store) => (next) => (action) => {
     case MANAGER_IS_REGISTERED: {
       const isManagerRegistered = async () => {
         const state = store.getState();
-        const url = `${process.env.REACT_APP_PRODUCTION_URL}/registered`;
+        const url = `${process.env.REACT_APP_SERVER_URL}/registered`;
         try {
           const response = await axios.post(url, {
             managerId: state.userData.infos.id,

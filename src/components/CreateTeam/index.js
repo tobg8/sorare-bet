@@ -69,31 +69,34 @@ const CreateTeam = ({
   return (
     <div className="interface">
       <div className="interface__deck">
-        {activePosition && checkNextMatchPlayer(currentGW, cards).length > 0 ? filterCardsByPosition(activePosition[0], checkNextMatchPlayer(currentGW, cards)).map((card) => (
-          <Card
-            key={card.id}
-            url={card.pictureUrl}
-            last5Score={card.player.status.lastFiveSo5AverageScore}
-            upcomingGames={card.player.activeClub.upcomingGames}
-            className="interface__card"
-            modifier="interface__card--modifier"
-            cardModifier="interface__card-picture--modifier"
-            addCard={addCard}
-            rarity={card.rarity}
-            name={card.slug}
-          />
-        )) : checkNextMatchPlayer(currentGW, cards).map((card) => (
-          <Card
-            key={card.id}
-            url={card.pictureUrl}
-            last5Score={card.player.status.lastFiveSo5AverageScore}
-            upcomingGames={card.player.activeClub.upcomingGames}
-            className="interface__card"
-            modifier="interface__card--modifier"
-            cardModifier="interface__card-picture--modifier"
-            addCard={addCard}
-          />
-        ))}
+        {activePosition
+        && checkNextMatchPlayer(currentGW, cards).length > 0
+          ? filterCardsByPosition(activePosition[0],
+            checkNextMatchPlayer(currentGW, cards)).map((card) => (
+              <Card
+                key={card.id}
+                url={card.pictureUrl}
+                last5Score={card.player.status.lastFiveSo5AverageScore}
+                upcomingGames={card.player.activeClub.upcomingGames}
+                className="interface__card"
+                modifier="interface__card--modifier"
+                cardModifier="interface__card-picture--modifier"
+                addCard={addCard}
+                rarity={card.rarity}
+                name={card.slug}
+              />
+          )) : checkNextMatchPlayer(currentGW, cards).map((card) => (
+            <Card
+              key={card.id}
+              url={card.pictureUrl}
+              last5Score={card.player.status.lastFiveSo5AverageScore}
+              upcomingGames={card.player.activeClub.upcomingGames}
+              className="interface__card"
+              modifier="interface__card--modifier"
+              cardModifier="interface__card-picture--modifier"
+              addCard={addCard}
+            />
+          ))}
       </div>
       <div className="interface__build">
         {slots.map((slot) => (

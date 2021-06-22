@@ -100,6 +100,7 @@ const app = (state = initialState, action = {}) => {
       };
     }
     case ADD_CARD: {
+      console.log(action);
       return {
         ...state,
         team: state.team.map((player) => {
@@ -110,6 +111,7 @@ const app = (state = initialState, action = {}) => {
               rarity: action.rarity,
               url: action.url,
               avgScore: action.last5Score,
+              upcomingGames: action.upcomingGames,
             };
           }
           return player;

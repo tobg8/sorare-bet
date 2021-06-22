@@ -22,7 +22,7 @@ const Card = ({
       className={`card ${className}`}
       onClick={() => {
         if (addCard) {
-          addCard(url, rarity, name, last5Score);
+          addCard(url, rarity, name, last5Score, upcomingGames);
         }
       }}
     >

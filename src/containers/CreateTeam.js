@@ -40,8 +40,8 @@ const mapDispatchToProps = (dispatch) => ({
   chooseRole: (position) => {
     dispatch(chooseRole(position));
   },
-  addCard: (url, rarity, name, last5Score) => {
-    dispatch(addCard(url, rarity, name, last5Score));
+  addCard: (url, rarity, name, last5Score, upcomingGames) => {
+    dispatch(addCard(url, rarity, name, last5Score, upcomingGames));
   },
   registerToLeague: () => {
     dispatch(registerToLeague());

@@ -16,7 +16,7 @@ const login = (store) => (next) => (action) => {
       const userLogin = async () => {
         const state = store.getState();
         // retrieve hashedPassword
-        const saltUrl = `${process.env.REACT_APP_PRODUCTION_URL}/salt`;
+        const saltUrl = `${process.env.REACT_APP_SERVER_URL}/salt`;
         try {
           const response = await axios.post(saltUrl, {
             email: state.connection.user.email,
@@ -27,7 +27,7 @@ const login = (store) => (next) => (action) => {
           // Try to log with email and hashedPassword,
           // if there is 2FA security this will return an otpSessionChallenge.
 
-          const loginUrl = `${process.env.REACT_APP_PRODUCTION_URL}/login`;
+          const loginUrl = `${process.env.REACT_APP_SERVER_URL}/login`;
           const tryLogin = await axios.post(loginUrl, {
             email: state.connection.user.email,
             password: hashedPassword,
@@ -54,7 +54,7 @@ const login = (store) => (next) => (action) => {
     case DOUBLE_AUTH_LOGIN: {
       const securedAuth = async () => {
         const state = store.getState();
-        const url = `${process.env.REACT_APP_PRODUCTION_URL}/auth`;
+        const url = `${process.env.REACT_APP_SERVER_URL}/auth`;
         try {
           const response = await axios.post(url, {
             otpSessionChallenge: state.connection.user.otpSessionChallenge,

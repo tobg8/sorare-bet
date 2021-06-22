@@ -1,0 +1,14 @@
+@use 'src/styles/vars' as v;
+
+.home {
+  background-color: v.$bg-color;
+  height: 100vh;
+  overflow: auto;
+}
+
+// @media screen and (max-width: 950px) {
+//   .home {
+//     display: flex;
+//     flex-direction: column;
+//   }
+// }

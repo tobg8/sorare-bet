@@ -1,0 +1,137 @@
+@use 'src/styles/vars' as v;
+
+.gallery {
+  background-color: v.$bg-color;
+  width: 100%;
+  height: 80.9vh;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  &__spinner {
+    margin: 0 auto;
+    display: flex;
+    align-self: center;
+  }
+}
+
+// Media queries Gallery
+
+@media screen and (max-width: 950px) {
+  .gallery {
+    height:79.6vh;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .gallery {
+    height:75vh;
+  }
+}
+
+.card {
+  font-family: v.$font-text;
+  color: v.$font-color;
+  width: 33%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 1em;
+  &__picture-container {
+    height: 100%;
+    width: 40%;
+  }
+  &__picture {
+    width: 40%;
+  }
+  &__infos {
+    height: 100%;
+    padding: .2em;
+    border-radius: 10px;
+    border: 2px solid v.$second-color;
+    width: 55%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__last-five-score {
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    width: 3em;
+    height: 3em;
+  }
+  &__games-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 70%;
+    justify-content: space-between;
+  }
+  &__no-games {
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: v.$font-text;
+  }
+}
+
+.infos {
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  min-height: 50%;
+  border-top: 2px solid v.$second-color;
+  position: relative;
+  &__container {
+    padding: .4em;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  &__clubPicture {
+    width: 3em;
+    height: 50%;
+    width: 50%;
+  }
+  &__clubName {
+    font-size: .8em;
+    text-align: center;
+    line-height: 1.4;
+  }
+  &__game-week {
+    position: absolute;
+    top: 0;
+    left: 45%;
+    background-color: v.$second-color;
+    padding: .4em;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// Media queries Card
+
+@media screen and (max-width: 950px) {
+  .card {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .infos {
+    &__game-week {
+      left: 40%;
+    }
+  }
+}

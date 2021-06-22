@@ -1,0 +1,170 @@
+@use 'src/styles/vars' as v;
+
+.logintab {
+  position: absolute;
+  top: 0;
+  right: 0;
+  &__button {
+    position: absolute;
+    top: 10%;
+    right: 25%;
+    background-color: v.$second-color;
+    color: white;
+    font-family: v.$font-title;
+    text-transform: uppercase;
+    padding: 1em 2em;
+    font-size: 1.2em;
+    border-radius: 30px;
+    border: none;
+  }
+  &__svg {
+    filter: drop-shadow( 1px 10px 10px v.$second-color);
+  }
+  &__explanation {
+    color: v.$second-color;
+    font-family: v.$font-text;
+    margin-bottom: 2em;
+    font-weight: 600;
+    padding-bottom: 1em;
+    border-bottom: 2px solid v.$second-color;
+  }
+  &__link {
+    font-family: v.$font-text;
+    position: absolute;
+    top: 45%;
+    right: 18%;
+    color: white;
+    cursor: default;
+    &--modifier {
+      color: v.$second-color;
+      margin-left: 0.5em;
+    }
+  }
+  &__login-form {
+    background-color: v.$bg-color;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__login-button {
+    width: 40%;
+    border: none;
+    background-color: v.$second-color;
+    font-family: v.$font-text;
+    padding: 1em 2em;
+    font-size: 1.2em;
+    border-radius: 30px;
+    margin-top: 2em;
+    color: v.$font-color;
+  }
+}
+
+
+// Queries LoginTab
+
+@media screen and (max-width: 950px) {
+  .logintab {
+    transform: scale(.8);
+    top: -30px;
+    right: -80px;
+    &__button {
+      font-size: 1.2em;
+      right: 19%;
+      padding: 1em 4em;
+    }
+    &__link {
+      top: 49%;
+      font-size: 1.3em;
+      right: 13%;
+    }
+  }
+}
+
+// Media queries LoginTab
+
+@media screen and (max-width: 700px) {
+  .logintab {
+    transform: scale(.66);
+    right: -110px;
+    top: 10px;
+    &__login-form {
+      margin-top: 6em;
+    }
+    &__login-button {
+      padding: 0;
+      margin-top: 1em;
+      padding: .5em 1em;
+    }
+  }
+}
+
+
+.input {
+  font-family: v.$font-text;
+  margin: .3em;
+  position: relative;
+  width: 60%;
+  max-width: 300px;
+  &__field {
+    margin: auto;
+    width: 100% !important;
+    padding: .7em;
+    margin: 1em 0;
+    font-size: 1.1em;
+    border: none;
+    border-radius: .3em;
+    height: 2.5em;
+    &::placeholder {
+      color: v.$bg-color;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    &:focus {
+      border-color: v.$second-color;
+    }
+  }
+  
+  &--has-content &__label {
+    display: block;
+  }
+  &--has-content &__field {
+    padding: 1.4em .7em .4em;
+  }
+
+  &__label {
+    display: none;
+    position: absolute;
+    top: -0.3rem;
+    left: .7rem;
+    font-weight: 700;
+    color: v.$second-color;
+    font-size: .9em;
+    text-transform: uppercase;
+    animation: labelSlideUpAndShow .3s;
+  }
+}
+
+// Media queries Input
+
+@media screen and (max-width: 700px) {
+  .input {
+    width: 80%;
+  }
+}
+
+// Animation
+
+@keyframes labelSlideUpAndShow{
+  0% {
+    transform: translateY(1em);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0em);
+    opacity: 1;
+  }
+}
+

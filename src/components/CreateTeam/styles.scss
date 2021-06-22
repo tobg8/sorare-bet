@@ -1,0 +1,148 @@
+@use 'src/styles/vars' as v;
+
+.interface {
+  margin-top: -1em;
+  height: 82vh;
+  display: flex;
+  background-color: v.$bg-color;
+  &__deck {
+    width: 25%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__build {
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 3px solid v.$second-color;
+    position: relative;
+  }
+  &__card {
+    width: 100%;
+  }
+  &__error {
+    color: v.$font-color;
+    padding: .8em;
+    width: 20%;
+    text-align: center;
+    background-color:red;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+  }
+  &__submit-team {
+    font-family: v.$font-text;
+    font-size: 1.3em;
+    border-radius: 10px;
+    color: v.$font-color;
+    background-color: v.$second-color;
+    font-weight: 600;
+    padding: 1em;
+    position: absolute;
+    bottom: 10%;
+    border: none;
+  }
+}
+
+.slot {
+  background-color: rgba(255,255,255,.1);
+  max-width: 202px;
+  width: 20%;
+  height: 40%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &--active {
+    border: 3px solid v.$second-color;
+  }
+  &__infos-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__role {
+    margin-bottom: 1em;
+    font-family: v.$font-text;
+    color: v.$second-color;
+  }
+  &__plus-icon {
+    width: 2em;
+  }
+}
+
+
+@media screen and (max-width: 950px) {
+  .interface {
+    height: 81.2vh;
+    &__build {
+      flex-wrap: wrap;
+      width: 60%;
+      overflow: auto;
+    }
+    &__deck {
+      width: 40%;
+    }
+    &__error {
+      position: fixed;
+      width: 50%;
+      right: 25%;
+      bottom: 10%;
+    }
+    &__submit-team {
+      position: fixed;
+      width: 30%;
+      right: 15%;
+      bottom: 10%;
+    }
+  }
+  .slot {
+    width: 45%;
+    margin: .5em;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .interface {
+    &__build {
+      overflow: auto;
+      height: 75vh;
+      width: 40vh;
+    }
+    &__deck {
+      height: 75vh;
+      z-index: 0;
+    }
+    &__card {
+      width: 100%;
+      &--modifier {
+      display: none;
+      }
+      &-picture--modifier {
+        width: 100%;
+      }
+    }
+    &__error {
+      position: fixed;
+      width: 50%;
+      right: 25%;
+      bottom: 10%;
+    }
+    &__submit-team {
+      position: fixed;
+      width: 50%;
+      right: 25%;
+      bottom: 10%;
+    }
+  }
+  .slot {
+    width: 100%;
+    margin: 1em 0;
+    height: 65%;
+  }
+}

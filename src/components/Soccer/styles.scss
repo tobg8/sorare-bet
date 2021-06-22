@@ -1,0 +1,36 @@
+.soccer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+  &__ballon {
+    position: relative;
+    animation: square 2s infinite;
+  }
+  &__square {
+    position: absolute;
+    animation: square 2s infinite;
+    &--1 {
+      top: 10px;
+      left: 49%;
+    }
+    &--2 {
+      top: 70px;
+      left: 51%;
+    }
+    &--3 {
+      top: 70px;
+      left: 47%;
+    }
+  }
+}
+
+@keyframes square {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

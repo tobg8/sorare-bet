@@ -1,0 +1,19 @@
+@use 'src/styles/vars' as v;
+
+.maintenance {
+  background-color: v.$bg-color;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__time {
+    font-family: v.$font-text;
+    font-size: 2.8em;
+    font-weight: 600;
+    color: v.$second-color;
+    text-align: center;
+    &--modifier {
+      margin-bottom: 1em;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+@use 'src/styles/vars' as v;
+
+.app {
+  &__gallery {
+    background-color: v.$bg-color;
+    width: 100%;
+  }
+}

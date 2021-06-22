@@ -1,0 +1,129 @@
+@use 'src/styles/vars' as v;
+
+.manager-tab {
+background-color: v.$second-color;
+min-height: 90px;
+display: flex;
+justify-content: flex-end;
+font-family: v.$font-text;
+margin-bottom: 1em;
+&__container {
+  width: 80%;
+  display: flex;
+}
+&__left {
+  background-color: v.$second-color;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+}
+&__gallery {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-direction: column;
+  &::after {
+    content: "";
+    padding-top: .2em;
+    display: block;
+    width: 0%;
+    border-bottom: 3px solid v.$bg-color;
+    align-self: flex-start;
+    margin-left: -.3em;
+    transition: width .3s ease;
+  }
+  &:hover::after {
+    width: 120%;
+  }
+}
+&__right {
+  background-color: v.$second-color;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 2em;
+  cursor: default;
+  position: relative;
+  font-size: 1.2em;
+  &:hover {
+    .manager-tab__hidden-menu {
+      display: flex;
+    }
+  }
+}
+&__picture {
+  height: 3.2em;
+  margin-right: 1em;
+}
+&__slug-container {
+  margin-right: 1em;
+  color: v.$font-color;
+}
+&__hidden-menu {
+  position: absolute;
+  width: 95%;
+  right: 0;
+  bottom: -5.1em;
+  background-color: white;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: .3em;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border: 3px solid v.$second-color;
+  display: none;
+  z-index: 1;
+}
+&__menu-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  padding: .5em;
+  background-color: v.$second-color;
+  color: white;
+  border-radius: 10px;
+  text-transform: capitalize;
+  margin-bottom: .3em;
+  font-size: 1em;
+  cursor: pointer;
+}
+}
+
+@media screen and (max-width: 950px) {
+  .manager-tab {
+    &__hidden-menu {
+      width: 120%;
+    }
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .manager-tab {
+    margin-top: 3em;
+    min-height: 70px;
+    &__container {
+      width: 100%;
+    }
+    &__left {
+      width: 50%;
+    }
+    &__right {
+      width: 50%;
+      justify-content: flex-end;
+      padding: 0;
+    }
+    &__hidden-menu {
+      width: 65%;
+      z-index: 1;
+    }
+  }
+}
